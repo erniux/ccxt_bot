@@ -10,16 +10,21 @@ from binance_client import BinanceClient
 
 
 SOCKET = 'wss://testnet.binance.vision/ws/btcusdt@kline_1m'
-RSI_PERIOD = 14
-RSI_OVERBOUGHT = 50
-RSI_OVERSOLD = 30
-TRADE_SYMBOL = 'BNBBTC'
-TRADE_QUANTITY = 0.05
-
-in_position = False
 closes = []
 binance = BinanceClient(True)
+RSI_PERIOD = 14
+RSI_OVERBOUGHT = 70
+RSI_OVERSOLD = 30
+TRADE_SYMBOL = 'BNBBTC'
+TRADE_QUANTITY = 20 # binance.get_position(TRADE_SYMBOL) # 0.05
 
+if TRADE_QUANTITY > 0:
+    in_position = True
+else:
+    in_position = False
+    
+    
+in_position = False
 
 def order(symbol, side, quantity, order_type):
     try:
@@ -55,19 +60,16 @@ def on_message(ws, message):
     close = candle['c']   # Closed price
     
     if is_candle_closed:
-        pprint.pprint(f'candle closed at {close}')
+        # pprint.pprint(f'candle closed at {close}')
         closes.append(float(close))
-        print("closes: ", closes)
+        # print("closes: ", closes)
         
         if len(closes) > RSI_PERIOD:
             np_closes = numpy.array(closes)
             rsi = talib.RSI(np_closes, RSI_PERIOD)
-            print(f"all rsi calculated so far {rsi}")
+            # print(f"all rsi calculated so far {rsi}")
             last_rsi = rsi[-1]
-            print(f"current rsi is {last_rsi}")
-            print(f"oversold:: {RSI_OVERSOLD}")
-            print(f"overbought:: {RSI_OVERBOUGHT}")
-            print(f"position?:: {in_position}")
+            print(f"current rsi is {last_rsi} oversold:: {RSI_OVERSOLD} overbought:: {RSI_OVERBOUGHT}  position?:: {in_position}")
                        
             if last_rsi > RSI_OVERBOUGHT:
                 if in_position:

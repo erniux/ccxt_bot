@@ -53,6 +53,17 @@ class BinanceClient:
 		else:
 			logger.error("CANT DETERMNE WHAT HAPPENED %s", response.status_code)
 
+	def get_contracts(self):
+		exchange_info = self._make_request("GET", "/api/v3/exchangeInfo", None)
+		contracts = dict()
+
+		if exchange_info is not None:
+			for contract_data in exchange_info['symbols']:
+				contracts[contract_data['symbol']] = contract_data
+
+		return contracts
+        
+        
 	def get_historical_candles(self, symbol, interval, limit=1000):
 		data = dict()
 		data['symbol'] = symbol
@@ -111,7 +122,7 @@ class BinanceClient:
 
 		order_status = self._make_request("GET", "/api/v3/order", data)
 		if order_status is not None:
-			order_status = OrderStatus(order_status, 'binance')
+			return order_status
 
 		return order_status
 
@@ -146,10 +157,24 @@ class BinanceClient:
 
 		if my_trades is not None:
 			return my_trades
+
+	def get_position(self, symbol):
+		contracts = binance.get_contracts()
+		base_asset = contracts['BNBUSDT']['baseAsset']
+		balances = binance.get_balances()
 		
+		position = (float(balances[base_asset]['free']) * 0.01) / 0.50
+		
+		
+		return position
+
 	
-binance = BinanceClient(True)
-# print(binance.get_balances())
-orders = binance.get_my_trades('ETHUSDT')
-for o in orders:
-	print(o)
+# binance = BinanceClient(True)
+# print(binance.get_position('BNBBTC'))
+
+# orders = binance.get_my_trades('ETHUSDT')
+# for o in orders:
+#	order_detail = binance.get_order_status('ETHUSDT',o['orderId'])
+#	print(o['symbol'], o['orderId'], o['price'], o['time'])
+#	print(order_detail)
+	

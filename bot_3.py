@@ -11,8 +11,11 @@ pd.set_option('display.max_rows', None)
 warnings.filterwarnings('ignore')
 
 binance = BinanceClient(True)
-trade_symbol = "BNBBTC"
+TRADE_SYMBOL = "BNBBTC"
+TRADE_QUANTITY = 20 # binance.get_position(TRADE_SYMBOL) # 0.05
 
+    
+in_position = False
 
 def tr(df):
 	df['previous_close'] = df['close'].shift(1)
@@ -58,7 +61,6 @@ def supertrend(df, period=7, multiplier=3):
 	return df
 
 	
-in_position = False
 
 def check_buy_sell_signals(df):
 	global in_position
@@ -66,14 +68,14 @@ def check_buy_sell_signals(df):
 	# print("checking for buy & sells")
 	balances = binance.get_balances()
 		
-	# print(df.tail(5))	
+	print(df.tail(5))	
 	last_row_index = len(df.index) - 1
 	previous_row_index = last_row_index - 1
 	
 	if not df['in_uptrend'][previous_row_index] and	df['in_uptrend'][last_row_index]:   # cambia de false a true
 		print("YOU MUST BUY!!!! CHANGED TO UPTREND, BUY")
 		if not in_position:
-			order = binance.place_order(trade_symbol, SIDE_BUY, 0.05, ORDER_TYPE_MARKET)
+			order = binance.place_order(TRADE_SYMBOL, SIDE_BUY, TRADE_QUANTITY, ORDER_TYPE_MARKET)
 			print(order)
 			print(balances)
 			in_position = True
@@ -84,7 +86,7 @@ def check_buy_sell_signals(df):
 	if df['in_uptrend'][previous_row_index] and	not df['in_uptrend'][last_row_index]:   # cambia de true  a false
 		print("YOU MUST SELL!!!! CHANGED TO DOWNTREND, SELL")	
 		if in_position:
-			order = binance.place_order(trade_symbol, SIDE_SELL, 0.05, ORDER_TYPE_MARKET)
+			order = binance.place_order(TRADE_SYMBOL, SIDE_SELL, TRADE_QUANTITY, ORDER_TYPE_MARKET)
 			print(order)
 			print(balances)
 			in_position = False
@@ -93,7 +95,7 @@ def check_buy_sell_signals(df):
 	
 def run_bot():
 	# print(f"Fetching new bars for: {datetime.now().isoformat()}")
-	bars = binance.get_historical_candles(trade_symbol, KLINE_INTERVAL_1MINUTE, limit=100)
+	bars = binance.get_historical_candles(TRADE_SYMBOL, KLINE_INTERVAL_1MINUTE, limit=100)
 	df = pd.DataFrame(bars[:-1], columns=['timestamp', 'open', 'high', 'low', 'close', 'volume' ])
 	df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms') 
 	supertrend_data = supertrend(df)
@@ -101,8 +103,8 @@ def run_bot():
 	check_buy_sell_signals(supertrend_data)
 
 
-schedule.every(1).seconds.do(run_bot)
-	
+
+schedule.every(1).minute.do(run_bot)
 
 while True:
 	schedule.run_pending()	
