@@ -108,7 +108,10 @@ class BitmexClient:
 
 	
 # bitmex = BitmexClient(True)
-# print(bitmex.place_order('XBTUSD', 'Market', 100, 'Buy'))
+# contracts = bitmex.get_contracts()
+# for a in contracts:
+#    print(a)
+
 
 # orders = binance.get_my_trades('ETHUSDT')
 # for o in orders:

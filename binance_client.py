@@ -5,6 +5,8 @@ from urllib.parse import urlencode
 import hmac
 import hashlib
 import time
+import pandas as pd
+from collections import OrderedDict 
 
 
 logger = logging.getLogger()
@@ -18,10 +20,10 @@ class BinanceClient:
 			self._api_key = secrets.BINANCE_SPOT_TESTNET_API_KEY
 			self._secret_key = secrets.BINANCE_SPOT_TESTNET_SECRET_KEY
 		else:
-			self._api_key = secrets.BINANCE_SPOT_API_URL
-			self._secret_key = secrets.BINANCE_SPOT_SECRET_KEY
-			self._base_url = secrets.BINANCE_SPOT_API_URL
+			self._base_url = secrets.BINANCE_SPOT_URL
 			self._wss_url = secrets.BINANCE_SPOT_WS_URL
+			self._api_key = secrets.BINANCE_SPOT_API_KEY
+			self._secret_key = secrets.BINANCE_SPOT_SECRET_KEY
 
 		self.headers = {'X-MBX-APIKEY': self._api_key}
         
@@ -51,11 +53,11 @@ class BinanceClient:
 		if response.status_code == 200:
 			return response.json()
 		else:
-			logger.error("CANT DETERMNE WHAT HAPPENED %s", response.status_code)
+			logger.error(f"CANT DETERMNE WHAT HAPPENED {response.status_code}, {response.json()}, {response.url}")
 
 	def get_contracts(self):
 		exchange_info = self._make_request("GET", "/api/v3/exchangeInfo", None)
-		contracts = dict()
+		contracts = OrderedDict()
 
 		if exchange_info is not None:
 			for contract_data in exchange_info['symbols']:
@@ -107,7 +109,7 @@ class BinanceClient:
 
 		data['timestamp'] = int(time.time() * 1000)
 		data['signature'] = self._generate_signature(data)
-
+		logger.info(f"DATOS PARA LA ORDER ::: Symbol ::: {symbol}   Side ::: {side}  Quantity ::: {quantity}   order_type ::: {order_type}  ")
 		order_status = self._make_request("POST", "/api/v3/order", data)
 
 
@@ -159,22 +161,37 @@ class BinanceClient:
 			return my_trades
 
 	def get_position(self, symbol):
-		contracts = binance.get_contracts()
-		base_asset = contracts['BNBUSDT']['baseAsset']
-		balances = binance.get_balances()
+		contracts = self.get_contracts()
+		base_asset = contracts[symbol]['baseAsset']
+		price_precission = contracts[symbol]['baseAssetPrecision']
+		balances = self.get_balances()
 		
-		position = (float(balances[base_asset]['free']) * 0.01) / 0.50
+		#position_1 = (float(balances[base_asset]['free']) * 0.01) / 0.50
+		position_2 = (float(balances[base_asset]['free']) * 0.01) / 0.25
 		
+		#print(position_1," ", position_2, " free::: ",float(balances[base_asset]['free']))
+		final_position = "{:0.0{}f}".format(position_2, price_precission)
 		
-		return position
+		return final_position
+
+
+#binance = BinanceClient(False)
+#print(binance.get_historical_candles("LUNABTC", "1m"))
 
 	
-# binance = BinanceClient(True)
-# print(binance.get_position('BNBBTC'))
+#print(binance.get_balances())
+#print(binance.get_position('BNBBTC'))
+#orders = binance.get_my_trades("BNBBTC")
 
+#for o in orders:
+#	print(f"order_id: {o['orderId']}    price: {o['price']}   quote_qty:  {o['quoteQty']}  time: {pd.to_datetime(o['time'], unit='ms')}  is_maker: {o['isMaker']}   is_buyer: {o['isBuyer']}")
+
+
+#order = binance.get_order_status("BNBBTC", 2066751)
+#print(order)
 # orders = binance.get_my_trades('ETHUSDT')
 # for o in orders:
 #	order_detail = binance.get_order_status('ETHUSDT',o['orderId'])
 #	print(o['symbol'], o['orderId'], o['price'], o['time'])
 #	print(order_detail)
-	
+

@@ -5,6 +5,7 @@ import talib
 import numpy
 import secrets
 from enums import *
+from twilio.rest import Client
 
 from binance_client import BinanceClient
 
@@ -16,7 +17,7 @@ RSI_PERIOD = 14
 RSI_OVERBOUGHT = 70
 RSI_OVERSOLD = 30
 TRADE_SYMBOL = 'BNBBTC'
-TRADE_QUANTITY = 20 # binance.get_position(TRADE_SYMBOL) # 0.05
+TRADE_QUANTITY = 0.01 # binance.get_position(TRADE_SYMBOL) # 0.05
 
 if TRADE_QUANTITY > 0:
     in_position = True
@@ -26,15 +27,18 @@ else:
     
 in_position = False
 
-def order(symbol, side, quantity, order_type):
-    try:
-        order = binance.place_order(symbol, side, quantity, ORDER_TYPE_MARKET)
-        print(order)
-    except Exception as e:
-        print(f"error placing order with values {symbol}, {side}, {quantity}, {order_type} ::: {e.error}")
-        return False
-    return True
-    
+
+def send_message(msg):
+	account_sid = secrets.TWILIO_ACCOUNT_SID
+	auth_token = secrets.TWILIO_AUTH_TOKEN
+	client = Client(account_sid, auth_token) 
+ 
+	message = client.messages.create( 
+                              from_='whatsapp:+14155238886',  
+                              body= msg,
+                              to='whatsapp:+5214427505679' 
+                          ) 
+     
 
 def on_open(ws):
     print('opened connection new version')
@@ -67,19 +71,17 @@ def on_message(ws, message):
         if len(closes) > RSI_PERIOD:
             np_closes = numpy.array(closes)
             rsi = talib.RSI(np_closes, RSI_PERIOD)
-            # print(f"all rsi calculated so far {rsi}")
+            #print(f"all rsi calculated so far {rsi}")
             last_rsi = rsi[-1]
             print(f"current rsi is {last_rsi} oversold:: {RSI_OVERSOLD} overbought:: {RSI_OVERBOUGHT}  position?:: {in_position}")
                        
             if last_rsi > RSI_OVERBOUGHT:
                 if in_position:
                     print("OVERBOUGHT SELL SELL SELL")
-                    order_succeeded = order(
-                    TRADE_SYMBOL, SIDE_SELL, 
-                    TRADE_QUANTITY, 
-                    ORDER_TYPE_MARKET)
-                    if order_succeeded:
-                        in_position = False
+                    order = binance.place_order(TRADE_SYMBOL, SIDE_BUY, TRADE_QUANTITY, ORDER_TYPE_MARKET)
+                    send_message(f"bot says::: BUYING ORDER {order['fills']}")
+                    logger.info(f"buy Order ::: {order}")
+                    in_position = False
                 else:
                     print("We do not own any. Nothing to do.")
                 
@@ -88,9 +90,10 @@ def on_message(ws, message):
                     print("IT IS oversold, but you already own it, nothing to do.")
                 else:
                     print ("OVERSOLD BUY BUY BUY")
-                    order_succeeded = order(TRADE_SYMBOL, SIDE_BUY, TRADE_QUANTITY, ORDER_TYPE_MARKET)
-                    if order_succeeded:
-                        in_position = True
+                    order = binance.place_order(TRADE_SYMBOL, SIDE_SELL, TRADE_QUANTITY, ORDER_TYPE_MARKET)
+                    send_message(f"bot says::: SELLING ORDER {order['fills']}")
+                    logger.info(f"buy Order ::: {order}")
+                    in_position = True
 
 
 ws = websocket.WebSocketApp(SOCKET, on_open=on_open, on_close=on_close, on_error=on_error, on_message=on_message)

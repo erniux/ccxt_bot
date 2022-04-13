@@ -13,26 +13,26 @@ import base64
 logger = logging.getLogger()
 
 
-class GeminiClient:
+class BitfinexClient:
 	def __init__(self, testnet):
 		if testnet:
-			self._base_url = secrets.GEMINI_SANDBOX_REST_URL
-			self._api_key = secrets.GEMINI_SANDBOX_API_KEY
-			self._secret_key = secrets.GEMINI_SANDBOX_SECRET_KEY
+			self._base_public_url = secrets.BITFINEX_SA_PUBLIC_URL
+			self._base_private_url = secrets.BITFINEX_SA_PRIVATE_URL
+			self._api_key = secrets.BITFINEX_SA_API_KEY
+			self._secret_key = secrets.BITFINEX_SA_SECRET_KEY
 		else:
-			self._base_url = secrets.GEMINI_REST_URL
-			self._api_key = secrets.GEMINI_API_KEY
-			self._secret_key = secrets.GEMINI_SECRET_KEY
+			self._base_public_url = secrets.BITFINEX_SA_PUBLIC_URL
+			self._base_private_url = secrets.BITFINEX_SA_PRIVATE_URL
+			self._api_key = ''
+			self._secret_key = ''
 			
 			
 	def get_symbols(self):
 		
-		response = requests.get(self._base_url + "/v1/symbols")
+		response = requests.get(self._base_public_url + "/v2/conf/pub:list:pair:exchange") 
 		symbols = response.json()
 		
-		for s in symbols:
-			response = requests.get(self._base_url + "/v1/symbols/details/" + str(s))
-			symbol_detail = response.json()
+		print(symbols)
 	
 	def get_balances(self):
 		
@@ -108,6 +108,5 @@ class GeminiClient:
 		
 			
 		
-# gemini = GeminiClient(True)
-# gemini.get_balances()
+
 

@@ -57,8 +57,8 @@ class CryptoClient:
         
         
             
-crypto = CryptoClient(False)
-print(crypto.get_balances())            
+# crypto = CryptoClient(False)
+# print(crypto.get_balances())            
             
             
         

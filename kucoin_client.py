@@ -125,8 +125,8 @@ class KucoinClient:
 
         return orders
     
-kucoin = KucoinClient(True)
+#kucoin = KucoinClient(True)
 # print(kucoin.get_contracts())
 # print(kucoin.place_order("BTC-USDT", "buy", "123456ETR001", 1)) 
-print(kucoin.get_all_orders()) 
+#print(kucoin.get_all_orders()) 
     

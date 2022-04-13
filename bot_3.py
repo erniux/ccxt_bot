@@ -6,16 +6,50 @@ from datetime import datetime
 import time
 import secrets
 from enums import *
+import logging
+from twilio.rest import Client
+
+
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
+stream_handler = logging.StreamHandler()
+formatter = logging.Formatter("%(asctime)s %(levelname)s :: %(message)s")
+
+stream_handler.setFormatter(formatter)
+stream_handler.setLevel(logging.INFO)
+
+file_handler = logging.FileHandler("info.log")
+file_handler.setFormatter(formatter)
+file_handler.setLevel(logging.INFO)
+
+logger.addHandler(stream_handler)
+logger.addHandler(file_handler)
 
 pd.set_option('display.max_rows', None)
 warnings.filterwarnings('ignore')
 
 binance = BinanceClient(True)
 TRADE_SYMBOL = "BNBBTC"
-TRADE_QUANTITY = 20 # binance.get_position(TRADE_SYMBOL) # 0.05
+TRADE_QUANTITY = 0.1 #binance.get_position(TRADE_SYMBOL) # 0.05
 
-    
+print(TRADE_QUANTITY)
+
 in_position = False
+
+
+def send_message(msg):
+	account_sid = secrets.TWILIO_ACCOUNT_SID
+	auth_token = secrets.TWILIO_AUTH_TOKEN
+	client = Client(account_sid, auth_token) 
+ 
+	message = client.messages.create( 
+                              from_='whatsapp:+14155238886',  
+                              body= msg,
+                              to='whatsapp:+5214427505679' 
+                          ) 
+ 
+	
 
 def tr(df):
 	df['previous_close'] = df['close'].shift(1)
@@ -26,7 +60,7 @@ def tr(df):
 	
 	return tr
 
-def atr(df, period=14):
+def atr(df, period=5):
 	# print("calculate the average true range")
 	df['tr'] = tr(df)
 	
@@ -35,7 +69,7 @@ def atr(df, period=14):
 	return the_atr
 	
 
-def supertrend(df, period=7, multiplier=3):
+def supertrend(df, period=5, multiplier=3.5):
 	# print("calculating supertrend")
 	df['atr'] = atr(df, period)
 	df['upperband'] = ((df['high'] + df['low']) / 2) + (multiplier * df['atr'])
@@ -60,38 +94,38 @@ def supertrend(df, period=7, multiplier=3):
 	
 	return df
 
-	
 
 def check_buy_sell_signals(df):
 	global in_position
 	
-	# print("checking for buy & sells")
+	logger.info("checking for buy & sells")
 	balances = binance.get_balances()
 		
-	print(df.tail(5))	
+	logger.info(df.tail(5))
 	last_row_index = len(df.index) - 1
 	previous_row_index = last_row_index - 1
+	logger.info(f"in_uptrend last_row index::: {df['in_uptrend'][previous_row_index]}")
+	logger.info(f"in uptrend previous_row_index ::: {df['in_uptrend'][previous_row_index]}")
+	logger.info(f"in_position?::: {in_position}")
 	
 	if not df['in_uptrend'][previous_row_index] and	df['in_uptrend'][last_row_index]:   # cambia de false a true
-		print("YOU MUST BUY!!!! CHANGED TO UPTREND, BUY")
 		if not in_position:
 			order = binance.place_order(TRADE_SYMBOL, SIDE_BUY, TRADE_QUANTITY, ORDER_TYPE_MARKET)
-			print(order)
-			print(balances)
+			send_message(f"bot_3 says::: BUYING ORDER {order['fills']}")
+			logger.info(f"buy Order ::: {order}")
 			in_position = True
 		else:
-			print("already in position, nothing to do")
+			logger.info("NOTHING TO BUY")
 		
 		
-	if df['in_uptrend'][previous_row_index] and	not df['in_uptrend'][last_row_index]:   # cambia de true  a false
-		print("YOU MUST SELL!!!! CHANGED TO DOWNTREND, SELL")	
+	if df['in_uptrend'][previous_row_index] and	not df['in_uptrend'][last_row_index]:   # cambia de true  a false	
 		if in_position:
 			order = binance.place_order(TRADE_SYMBOL, SIDE_SELL, TRADE_QUANTITY, ORDER_TYPE_MARKET)
-			print(order)
-			print(balances)
+			send_message(f"bot_3 says ::: SELLING ORDER {order['fills']}")
+			logger.info(f"sell Order ::: {order}")
 			in_position = False
 		else:
-			print("you do not have position to sell, nothing to do")
+			logger.info("NOTHING TO SELL")
 	
 def run_bot():
 	# print(f"Fetching new bars for: {datetime.now().isoformat()}")
