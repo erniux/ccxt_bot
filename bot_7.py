@@ -59,7 +59,7 @@ warnings.filterwarnings('ignore')
 def get_exchanges_to_trade(side):
 	arbitrage = get_tickers()
 	
-	df_ex = pd.DataFrame(arbitrage, columns=['exchange', 'timestamp', 'bid', 'ask'])
+	df_ex = pd.DataFrame(arbitrage, columns=['exchange', 'symbol', 'timestamp', 'bid', 'ask'])
 	logger.info(df_ex)
 	if side == SIDE_BUY:
 		return df_ex[df_ex['ask']==df_ex['ask'].min()]
@@ -74,28 +74,34 @@ def check_buy_sell_signals():
 	exchange_buy = get_exchanges_to_trade(SIDE_BUY)
 	exchange_to_buy = exchange_buy.iloc[0, :]['exchange']
 	price_to_buy = exchange_buy.iloc[0, :]['ask']
-	msg = f"Compra a ::: {exchange_to_buy} :: PRECIO {price_to_buy}"
+	symbol_to_buy = exchange_buy.iloc[0, :]['symbol']
+	msg = f"Compra a ::: {exchange_to_buy} :: PRECIO {price_to_buy} :: {symbol_to_buy}"
 	
 	logger.info(msg)
+	
+	order_buy = order(exchange_to_buy, symbol_to_buy, 'buy', 2, price_to_buy)
 
 
 	exchange_sell = get_exchanges_to_trade(SIDE_SELL)
 	exchange_to_sell = exchange_sell.iloc[0, :]['exchange']
 	price_to_sell = exchange_sell.iloc[0, :]['bid']
-	msg = f"Venta a ::: {exchange_to_sell} :: PRECIO {price_to_sell}"
+	symbol_to_sell = exchange_sell.iloc[0, :]['symbol']
+	msg = f"Venta a ::: {exchange_to_sell} :: PRECIO {price_to_sell} :: {symbol_to_sell}"
 	logger.info(msg)
+	
+	order_buy = order(exchange_to_sell, symbol_to_sell, 'sell', 2, price_to_sell)
 
 			
-def order(exchange, symbol, side, quantity, type):
-	if exchange_to_buy == 'gemini':
-		order = gemini.place_order(symbol, side, quantity, type, price)
-	if exchange_to_buy == 'binance':
-		order = binance.place_order(symbol, side, quantity, type)
-	elif exchange_to_buy == 'crypto':
+def order(exchange, symbol, side, quantity, price):
+	if exchange == 'gemini':
+		order = gemini.place_order(symbol, side, quantity,'exchange limit' ,price)    # symbol, side, quantity, order_type, price=None
+	if exchange == 'binance':
+		order = binance.place_order(symbol, side, quantity, MARKET)   # symbol, side(BUY),, quantity, order_type (MARKET),
+	elif exchange == 'crypto':
 		return
-	elif exchange_to_buy == 'bitmex':
+	elif exchange == 'bitmex':
 		order = bitmex.place_order(symbol, type, quantity, side) # ('XBTUSD', 'Market', 100, 'Buy'))
-	elif exchange_to_buy == 'kucoin':
+	elif exchange == 'kucoin':
 		order = kucoin.place_order(symbol, type, "", quantity)
 	
 	return order
@@ -109,7 +115,7 @@ def get_tickers():
 		response = requests.get(gemini_url + f"/v1/pubticker/{symbol_gemini}")
 		ticker_gemini = response.json()
 		
-		gemini = ["gemini", ticker_gemini['volume']['timestamp'], float(ticker_gemini['bid']), float(ticker_gemini['ask'])]
+		gemini = ["gemini", symbol_gemini, ticker_gemini['volume']['timestamp'], float(ticker_gemini['bid']), float(ticker_gemini['ask'])]
 		arbitrage.append(gemini)
 		# print(f"GEMINI:: {ticker_gemini['volume']['timestamp']} bid:: {ticker_gemini['bid']} :: ask:: {ticker_gemini['ask']}")  
 	except Exception:
@@ -121,7 +127,7 @@ def get_tickers():
 		data['instrument_name'] = symbol_crypto
 		response = requests.get(crypto_url + "/v2/public/get-ticker", params=data)
 		ticker_crypto = response.json()['result']['data']
-		crypto = ["crypto", ticker_crypto['t'], float(ticker_crypto['b']), float(ticker_crypto['k'])]
+		crypto = ["crypto", symbol_crypto, ticker_crypto['t'], float(ticker_crypto['b']), float(ticker_crypto['k'])]
 		arbitrage.append(crypto)
 		# print(f"CRYPTO:: {ticker_crypto['t']}::: bid:: {ticker_crypto['b']} :: ask:: {ticker_crypto['k']}")
 	except Exception:
@@ -134,7 +140,7 @@ def get_tickers():
 		data['symbol'] = symbol_kucoin
 		response = requests.get(kucoin_url + "/api/v1/market/orderbook/level1", params=data)
 		ticker_kucoin = response.json()['data']
-		kucoin = ["kucoin", ticker_kucoin['time'], float(ticker_kucoin['bestBid']), float(ticker_kucoin['bestAsk'])] 
+		kucoin = ["kucoin", symbol_kucoin, ticker_kucoin['time'], float(ticker_kucoin['bestBid']), float(ticker_kucoin['bestAsk'])] 
 		arbitrage.append(kucoin)
 		# print(f"KUCOIN:: {ticker_kucoin['time']}::: bid:: {ticker_kucoin['bestBid']} :: ask:: {ticker_kucoin['bestAsk']}")
 	except Exception:
@@ -147,7 +153,7 @@ def get_tickers():
 		time_response = requests.get(binance_url + "/api/v3/time")
 		time_binance = time_response.json()
 		ticker_binance = response.json()
-		binance =  ["binance", time_binance['serverTime'], float(ticker_binance['bidPrice']), float(ticker_binance['askPrice'])]
+		binance =  ["binance", TRADE_SYMBOL, time_binance['serverTime'], float(ticker_binance['bidPrice']), float(ticker_binance['askPrice'])]
 		arbitrage.append(binance)
 		# print(f"BINANCE:: {time_binance['serverTime']}::: bid:: {ticker_binance['bidPrice']} :: ask:: {ticker_binance['askPrice']}")
 	except Exception:
@@ -160,7 +166,7 @@ def get_tickers():
 		logger.info(symbol)
 		response = requests.get(bitfinex_url +"/v2/ticker/t" + symbol)
 		ticker_bitfinex = (response.json())
-		bitfinex =  ["bitfinex", '', float(ticker_bitfinex[2]), float(ticker_bitfinex[6])]
+		bitfinex =  ["bitfinex", symbol, '', float(ticker_bitfinex[2]), float(ticker_bitfinex[6])]
 		arbitrage.append(bitfinex)
 	except Exception:
 		logger.error(f"EROR EN REQUEST BITFINEX {response}, {response.url}")

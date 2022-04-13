@@ -67,24 +67,23 @@ class GeminiClient:
 		
 	def place_order(self, symbol, side, quantity, order_type, price=None):
 		
-		endpoint = "/v1/order/new"
-		url = base_url + endpoint
-
-		gemini_api_key = "mykey"
-		gemini_api_secret = "1234abcd".encode()
+		url = self._base_url + "/v1/order/new"
+		gemini_api_key = self._api_key
+		gemini_api_secret = self._secret_key.encode()
 
 		t = datetime.datetime.now()
-		payload_nonce =  str(int(time.mktime(t.timetuple())*1000))
+		payload_nonce =  str(int(time.mktime(t.timetuple())*2000))
 
 		payload = {
 			"request": "/v1/order/new",
 			"nonce": payload_nonce,
+			"account": "primary",
 			"symbol": symbol,
 			"amount": quantity,
-			"price": price,
-			"side": "buy",
-			"type": "exchange limit",
-			"options": ["maker-or-cancel"] 
+			"price": "3633.00",
+			"side": side,
+			"type": order_type,
+			"options": ['immediate-or-cancel'] 
 		}
 
 		encoded_payload = json.dumps(payload).encode()
@@ -105,9 +104,42 @@ class GeminiClient:
 
 		new_order = response.json()
 		print(new_order)
+	
+	def orders_status(self):
+		url = self._base_url + "/v1/orders"
+		gemini_api_key = self._api_key
+		gemini_api_secret = self._secret_key.encode()
+
+		t = datetime.datetime.now()
+		payload_nonce =  str(int(time.mktime(t.timetuple())*3000))
+		payload =  {
+			"request": "/v1/orders", 
+			"nonce": payload_nonce,
+			"account": "primary"
+			}
+		encoded_payload = json.dumps(payload).encode()
+		b64 = base64.b64encode(encoded_payload)
+		signature = hmac.new(gemini_api_secret, b64, hashlib.sha384).hexdigest()
+
+		request_headers = {
+			'Content-Type': "text/plain",
+			'Content-Length': "0",
+			'X-GEMINI-APIKEY': gemini_api_key,
+			'X-GEMINI-PAYLOAD': b64,
+			'X-GEMINI-SIGNATURE': signature,
+			'Cache-Control': "no-cache"
+			}
+
+		response = requests.post(url, headers=request_headers)
+	
+		my_orders = response.json()
+		print(my_orders)
 		
 			
 		
-# gemini = GeminiClient(True)
-# gemini.get_balances()
+#gemini = GeminiClient(True)
+#gemini.get_balances()
+#gemini.place_order('btcusd','buy',1, 'exchange limit')
+#gemini.orders_status()
+
 

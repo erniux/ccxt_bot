@@ -462,3 +462,776 @@
 3   binance  1649820671274  40182.35  40182.36
 4  bitfinex                 40204.00  40210.00
 2022-04-12 22:31:11,591 INFO :: Venta a ::: bitfinex :: PRECIO 40204.0
+2022-04-12 22:39:36,667 INFO :: Starting bot siete...
+2022-04-12 22:40:08,554 INFO :: BTCUSD
+2022-04-12 22:41:41,540 INFO :: Starting bot siete...
+2022-04-12 22:42:13,283 INFO :: BTCUSD
+2022-04-12 22:42:13,650 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821200000  40155.68  40161.89
+1    crypto  BTC_USDT  1649821332044  40149.22  40152.79
+2    kucoin  BTC-USDT  1649821331175  40153.10  40153.20
+3   binance   BTCUSDT  1649821333183  40153.34  40153.35
+4  bitfinex    BTCUSD                 40175.00  40172.00
+2022-04-12 22:42:13,694 INFO :: Compra a ::: crypto :: PRECIO 40152.79
+2022-04-12 22:42:15,155 INFO :: BTCUSD
+2022-04-12 22:42:15,390 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821200000  40155.68  40161.89
+1    crypto  BTC_USDT  1649821334150  40150.39  40152.99
+2    kucoin  BTC-USDT  1649821334076  40153.10  40153.20
+3   binance   BTCUSDT  1649821335052  40153.34  40153.35
+4  bitfinex    BTCUSD                 40175.00  40172.00
+2022-04-12 22:42:15,462 INFO :: Venta a ::: bitfinex :: PRECIO 40175.0
+2022-04-12 22:42:47,059 INFO :: BTCUSD
+2022-04-12 22:42:47,408 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821200000  40160.10  40170.10
+1    crypto  BTC_USDT  1649821365691  40156.62  40157.16
+2    kucoin  BTC-USDT  1649821365674  40153.10  40153.20
+3   binance   BTCUSDT  1649821366963  40157.03  40157.04
+4  bitfinex    BTCUSD                 40175.00  40173.00
+2022-04-12 22:42:47,448 INFO :: Compra a ::: kucoin :: PRECIO 40153.2
+2022-04-12 22:42:48,959 INFO :: BTCUSD
+2022-04-12 22:42:49,195 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821200000  40160.11  40170.10
+1    crypto  BTC_USDT  1649821367910  40156.62  40156.63
+2    kucoin  BTC-USDT  1649821367975  40153.10  40153.20
+3   binance   BTCUSDT  1649821368856  40157.03  40157.04
+4  bitfinex    BTCUSD                 40175.00  40173.00
+2022-04-12 22:42:49,266 INFO :: Venta a ::: bitfinex :: PRECIO 40175.0
+2022-04-12 22:43:21,372 INFO :: BTCUSD
+2022-04-12 22:43:21,843 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821200000  40156.02  40166.32
+1    crypto  BTC_USDT  1649821399892  40152.92  40156.58
+2    kucoin  BTC-USDT  1649821400174  40159.90  40160.00
+3   binance   BTCUSDT  1649821401272  40158.00  40158.01
+4  bitfinex    BTCUSD                 40177.00  40175.00
+2022-04-12 22:43:21,889 INFO :: Compra a ::: crypto :: PRECIO 40156.58
+2022-04-12 22:43:23,506 INFO :: BTCUSD
+2022-04-12 22:43:23,723 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821200000  40156.19  40166.32
+1    crypto  BTC_USDT  1649821402371  40155.00  40156.41
+2    kucoin  BTC-USDT  1649821401277  40159.90  40160.00
+3   binance   BTCUSDT  1649821403403  40158.00  40158.01
+4  bitfinex    BTCUSD                 40177.00  40175.00
+2022-04-12 22:43:23,769 INFO :: Venta a ::: bitfinex :: PRECIO 40177.0
+2022-04-12 22:43:55,407 INFO :: BTCUSD
+2022-04-12 22:43:55,796 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821200000  40155.88  40166.22
+1    crypto  BTC_USDT  1649821434355  40153.71  40153.74
+2    kucoin  BTC-USDT  1649821434275  40153.10  40153.20
+3   binance   BTCUSDT  1649821435307  40155.40  40155.41
+4  bitfinex    BTCUSD                 40178.00  40178.00
+2022-04-12 22:43:55,838 INFO :: Compra a ::: kucoin :: PRECIO 40153.2
+2022-04-12 22:43:57,302 INFO :: BTCUSD
+2022-04-12 22:43:57,531 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821200000  40155.88  40166.22
+1    crypto  BTC_USDT  1649821436311  40153.70  40153.71
+2    kucoin  BTC-USDT  1649821435876  40153.10  40153.20
+3   binance   BTCUSDT  1649821437202  40155.40  40155.41
+4  bitfinex    BTCUSD                 40178.00  40178.00
+2022-04-12 22:43:57,585 INFO :: Venta a ::: bitfinex :: PRECIO 40178.0
+2022-04-12 22:44:29,247 INFO :: BTCUSD
+2022-04-12 22:44:29,495 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821200000  40172.63  40185.21
+1    crypto  BTC_USDT  1649821468220  40163.51  40163.52
+2    kucoin  BTC-USDT  1649821468175  40167.70  40167.80
+3   binance   BTCUSDT  1649821469145  40169.30  40169.31
+4  bitfinex    BTCUSD                 40178.00  40177.00
+2022-04-12 22:44:29,538 INFO :: Compra a ::: crypto :: PRECIO 40163.52
+2022-04-12 22:44:31,597 INFO :: BTCUSD
+2022-04-12 22:44:32,440 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821200000  40176.42  40185.13
+1    crypto  BTC_USDT  1649821470022  40166.00  40168.93
+2    kucoin  BTC-USDT  1649821470275  40167.70  40167.80
+3   binance   BTCUSDT  1649821471410  40169.30  40169.31
+4  bitfinex    BTCUSD                 40186.00  40181.00
+2022-04-12 22:44:32,543 INFO :: Venta a ::: bitfinex :: PRECIO 40186.0
+2022-04-12 22:45:04,149 INFO :: BTCUSD
+2022-04-12 22:45:04,578 INFO ::    exchange    symbol      timestamp       bid           ask
+0    gemini    btcusd  1649821500000  40176.42  40178.300000
+1    crypto  BTC_USDT  1649821503102  40167.91  40168.080000
+2    kucoin  BTC-USDT  1649821503275  40167.70  40167.800000
+3   binance   BTCUSDT  1649821504049  40167.97  40167.980000
+4  bitfinex    BTCUSD                 40189.00  40187.017152
+2022-04-12 22:45:04,619 INFO :: Compra a ::: kucoin :: PRECIO 40167.8
+2022-04-12 22:45:06,565 INFO :: BTCUSD
+2022-04-12 22:45:06,749 INFO ::    exchange    symbol      timestamp       bid           ask
+0    gemini    btcusd  1649821500000  40176.42  40178.240000
+1    crypto  BTC_USDT  1649821505114  40167.54  40167.870000
+2    kucoin  BTC-USDT  1649821505674  40167.70  40167.800000
+3   binance   BTCUSDT  1649821506469  40167.97  40167.980000
+4  bitfinex    BTCUSD                 40189.00  40187.017152
+2022-04-12 22:45:06,801 INFO :: Venta a ::: bitfinex :: PRECIO 40189.0
+2022-04-12 22:45:31,946 INFO :: Starting bot siete...
+2022-04-12 22:46:03,738 INFO :: BTCUSD
+2022-04-12 22:46:04,097 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821500000  40172.80  40178.75
+1    crypto  BTC_USDT  1649821562639  40167.32  40167.33
+2    kucoin  BTC-USDT  1649821562874  40169.70  40169.80
+3   binance   BTCUSDT  1649821563642  40167.94  40167.95
+4  bitfinex    BTCUSD                 40201.00  40196.00
+2022-04-12 22:47:11,378 INFO :: Starting bot siete...
+2022-04-12 22:47:43,131 INFO :: BTCUSD
+2022-04-12 22:47:43,379 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821500000  40116.43  40125.48
+1    crypto  BTC_USDT  1649821662028  40108.46  40108.47
+2    kucoin  BTC-USDT  1649821661975  40109.70  40109.80
+3   binance   BTCUSDT  1649821663032  40109.82  40109.83
+4  bitfinex    BTCUSD                 40131.00  40126.00
+2022-04-12 22:47:43,423 INFO :: Compra a ::: crypto :: PRECIO 40108.47 :: BTC_USDT
+2022-04-12 22:47:45,409 INFO :: BTCUSD
+2022-04-12 22:47:45,623 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821500000  40115.74  40120.83
+1    crypto  BTC_USDT  1649821663946  40107.48  40107.79
+2    kucoin  BTC-USDT  1649821664175  40108.50  40108.60
+3   binance   BTCUSDT  1649821665307  40105.83  40105.84
+4  bitfinex    BTCUSD                 40131.00  40126.00
+2022-04-12 22:47:45,693 INFO :: Venta a ::: bitfinex :: PRECIO 40131.0 :: BTCUSD
+2022-04-12 22:48:17,298 INFO :: BTCUSD
+2022-04-12 22:48:17,623 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821500000  40130.05  40141.47
+1    crypto  BTC_USDT  1649821696288  40126.65  40127.82
+2    kucoin  BTC-USDT  1649821696180  40128.30  40128.40
+3   binance   BTCUSDT  1649821697197  40127.81  40127.82
+4  bitfinex    BTCUSD                 40149.00  40142.00
+2022-04-12 22:48:17,670 INFO :: Compra a ::: crypto :: PRECIO 40127.82 :: BTC_USDT
+2022-04-12 22:48:19,237 INFO :: BTCUSD
+2022-04-12 22:48:19,462 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821500000  40130.05  40135.83
+1    crypto  BTC_USDT  1649821698127  40124.67  40125.23
+2    kucoin  BTC-USDT  1649821697980  40128.30  40128.40
+3   binance   BTCUSDT  1649821699138  40127.81  40127.82
+4  bitfinex    BTCUSD                 40149.00  40142.00
+2022-04-12 22:48:19,504 INFO :: Venta a ::: bitfinex :: PRECIO 40149.0 :: BTCUSD
+2022-04-12 22:48:51,286 INFO :: BTCUSD
+2022-04-12 22:48:51,643 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821500000  40124.82  40135.50
+1    crypto  BTC_USDT  1649821730071  40118.45  40119.03
+2    kucoin  BTC-USDT  1649821730275  40122.80  40122.90
+3   binance   BTCUSDT  1649821731190  40118.86  40118.87
+4  bitfinex    BTCUSD                 40144.00  40143.00
+2022-04-12 22:48:51,687 INFO :: Compra a ::: binance :: PRECIO 40118.87 :: BTCUSDT
+2022-04-12 22:48:53,266 INFO :: BTCUSD
+2022-04-12 22:48:53,489 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821500000  40124.71  40134.79
+1    crypto  BTC_USDT  1649821732197  40115.69  40118.19
+2    kucoin  BTC-USDT  1649821731575  40122.80  40122.90
+3   binance   BTCUSDT  1649821733168  40118.86  40118.87
+4  bitfinex    BTCUSD                 40144.00  40143.00
+2022-04-12 22:48:53,534 INFO :: Venta a ::: bitfinex :: PRECIO 40144.0 :: BTCUSD
+2022-04-12 22:49:25,622 INFO :: BTCUSD
+2022-04-12 22:49:25,846 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821500000  40115.74  40117.85
+1    crypto  BTC_USDT  1649821764423  40106.15  40106.16
+2    kucoin  BTC-USDT  1649821764575  40107.80  40107.90
+3   binance   BTCUSDT  1649821765528  40109.52  40109.53
+4  bitfinex    BTCUSD                 40133.00  40132.00
+2022-04-12 22:49:25,890 INFO :: Compra a ::: crypto :: PRECIO 40106.16 :: BTC_USDT
+2022-04-12 22:49:27,901 INFO :: BTCUSD
+2022-04-12 22:49:28,113 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821500000  40115.79  40129.95
+1    crypto  BTC_USDT  1649821766370  40111.30  40111.58
+2    kucoin  BTC-USDT  1649821766276  40119.10  40119.20
+3   binance   BTCUSDT  1649821767800  40111.46  40111.47
+4  bitfinex    BTCUSD                 40133.00  40132.00
+2022-04-12 22:49:28,157 INFO :: Venta a ::: bitfinex :: PRECIO 40133.0 :: BTCUSD
+2022-04-12 22:49:59,849 INFO :: BTCUSD
+2022-04-12 22:50:00,209 INFO ::    exchange    symbol      timestamp       bid          ask
+0    gemini    btcusd  1649821500000  40115.74  40115.75000
+1    crypto  BTC_USDT  1649821798721  40099.60  40101.89000
+2    kucoin  BTC-USDT  1649821798574  40103.20  40103.30000
+3   binance   BTCUSDT  1649821799750  40099.49  40099.50000
+4  bitfinex    BTCUSD                 40126.00  40125.64728
+2022-04-12 22:50:00,291 INFO :: Compra a ::: binance :: PRECIO 40099.5 :: BTCUSDT
+2022-04-12 22:50:01,803 INFO :: BTCUSD
+2022-04-12 22:50:02,009 INFO ::    exchange    symbol      timestamp       bid          ask
+0    gemini    btcusd  1649821800000  40115.74  40115.75000
+1    crypto  BTC_USDT  1649821800776  40099.49  40102.10000
+2    kucoin  BTC-USDT  1649821800974  40103.20  40103.30000
+3   binance   BTCUSDT  1649821801702  40099.49  40099.50000
+4  bitfinex    BTCUSD                 40126.00  40125.64728
+2022-04-12 22:50:02,093 INFO :: Venta a ::: bitfinex :: PRECIO 40126.0 :: BTCUSD
+2022-04-12 22:50:34,715 INFO :: BTCUSD
+2022-04-12 22:50:35,077 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40103.11  40103.54
+1    crypto  BTC_USDT  1649821833715  40089.04  40090.02
+2    kucoin  BTC-USDT  1649821833374  40094.60  40094.70
+3   binance   BTCUSDT  1649821834619  40091.18  40091.19
+4  bitfinex    BTCUSD                 40109.00  40109.00
+2022-04-12 22:50:35,150 INFO :: Compra a ::: crypto :: PRECIO 40090.02 :: BTC_USDT
+2022-04-12 22:50:36,696 INFO :: BTCUSD
+2022-04-12 22:50:36,910 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40103.11  40103.54
+1    crypto  BTC_USDT  1649821835655  40089.73  40089.74
+2    kucoin  BTC-USDT  1649821835779  40093.90  40094.00
+3   binance   BTCUSDT  1649821836600  40091.18  40091.19
+4  bitfinex    BTCUSD                 40109.00  40109.00
+2022-04-12 22:50:37,004 INFO :: Venta a ::: bitfinex :: PRECIO 40109.0 :: BTCUSD
+2022-04-12 22:51:09,280 INFO :: BTCUSD
+2022-04-12 22:51:09,649 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40104.99  40106.41
+1    crypto  BTC_USDT  1649821868094  40099.53  40099.54
+2    kucoin  BTC-USDT  1649821868275  40108.90  40109.00
+3   binance   BTCUSDT  1649821869177  40103.01  40103.02
+4  bitfinex    BTCUSD                 40103.00  40104.00
+2022-04-12 22:51:09,696 INFO :: Compra a ::: crypto :: PRECIO 40099.54 :: BTC_USDT
+2022-04-12 22:51:11,186 INFO :: BTCUSD
+2022-04-12 22:51:11,412 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40104.99  40106.41
+1    crypto  BTC_USDT  1649821870210  40098.68  40098.69
+2    kucoin  BTC-USDT  1649821869874  40108.90  40109.00
+3   binance   BTCUSDT  1649821871088  40103.01  40103.02
+4  bitfinex    BTCUSD                 40103.00  40104.00
+2022-04-12 22:51:11,507 INFO :: Venta a ::: kucoin :: PRECIO 40108.9 :: BTC-USDT
+2022-04-12 22:51:43,072 INFO :: BTCUSD
+2022-04-12 22:51:43,316 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40107.49  40117.93
+1    crypto  BTC_USDT  1649821901962  40099.32  40099.33
+2    kucoin  BTC-USDT  1649821901876  40110.50  40110.60
+3   binance   BTCUSDT  1649821902976  40103.01  40103.02
+4  bitfinex    BTCUSD                 40122.00  40114.00
+2022-04-12 22:51:43,428 INFO :: Compra a ::: crypto :: PRECIO 40099.33 :: BTC_USDT
+2022-04-12 22:51:45,467 INFO :: BTCUSD
+2022-04-12 22:51:45,652 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40114.45  40117.93
+1    crypto  BTC_USDT  1649821903869  40099.32  40099.33
+2    kucoin  BTC-USDT  1649821903575  40110.50  40110.60
+3   binance   BTCUSDT  1649821905371  40103.01  40103.02
+4  bitfinex    BTCUSD                 40122.00  40114.00
+2022-04-12 22:51:45,696 INFO :: Venta a ::: bitfinex :: PRECIO 40122.0 :: BTCUSD
+2022-04-12 22:52:17,331 INFO :: BTCUSD
+2022-04-12 22:52:17,717 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40104.30  40114.24
+1    crypto  BTC_USDT  1649821936279  40096.58  40098.95
+2    kucoin  BTC-USDT  1649821935875  40105.60  40105.70
+3   binance   BTCUSDT  1649821937235  40096.58  40096.59
+4  bitfinex    BTCUSD                 40109.00  40117.00
+2022-04-12 22:52:17,765 INFO :: Compra a ::: binance :: PRECIO 40096.59 :: BTCUSDT
+2022-04-12 22:52:19,307 INFO :: BTCUSD
+2022-04-12 22:52:19,508 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40106.20  40114.45
+1    crypto  BTC_USDT  1649821938253  40096.57  40098.91
+2    kucoin  BTC-USDT  1649821938474  40105.60  40105.70
+3   binance   BTCUSDT  1649821939215  40096.58  40096.59
+4  bitfinex    BTCUSD                 40109.00  40117.00
+2022-04-12 22:52:19,560 INFO :: Venta a ::: bitfinex :: PRECIO 40109.0 :: BTCUSD
+2022-04-12 22:52:51,301 INFO :: BTCUSD
+2022-04-12 22:52:51,989 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40103.23  40112.47
+1    crypto  BTC_USDT  1649821970172  40095.98  40095.99
+2    kucoin  BTC-USDT  1649821970376  40102.70  40102.80
+3   binance   BTCUSDT  1649821971201  40097.28  40097.29
+4  bitfinex    BTCUSD                 40119.00  40117.00
+2022-04-12 22:52:52,033 INFO :: Compra a ::: crypto :: PRECIO 40095.99 :: BTC_USDT
+2022-04-12 22:52:53,552 INFO :: BTCUSD
+2022-04-12 22:52:53,771 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40103.43  40112.09
+1    crypto  BTC_USDT  1649821972560  40096.00  40096.80
+2    kucoin  BTC-USDT  1649821972775  40102.70  40102.80
+3   binance   BTCUSDT  1649821973452  40097.28  40097.29
+4  bitfinex    BTCUSD                 40119.00  40117.00
+2022-04-12 22:52:53,815 INFO :: Venta a ::: bitfinex :: PRECIO 40119.0 :: BTCUSD
+2022-04-12 22:53:25,479 INFO :: BTCUSD
+2022-04-12 22:53:25,848 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40103.44  40115.79
+1    crypto  BTC_USDT  1649822004384  40097.53  40098.24
+2    kucoin  BTC-USDT  1649822004474  40101.80  40101.90
+3   binance   BTCUSDT  1649822005382  40100.01  40100.02
+4  bitfinex    BTCUSD                 40119.00  40118.00
+2022-04-12 22:53:25,928 INFO :: Compra a ::: crypto :: PRECIO 40098.24 :: BTC_USDT
+2022-04-12 22:53:27,434 INFO :: BTCUSD
+2022-04-12 22:53:27,635 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40103.44  40115.79
+1    crypto  BTC_USDT  1649822006172  40097.40  40098.19
+2    kucoin  BTC-USDT  1649822006474  40101.80  40101.90
+3   binance   BTCUSDT  1649822007341  40100.01  40100.02
+4  bitfinex    BTCUSD                 40119.00  40118.00
+2022-04-12 22:53:27,683 INFO :: Venta a ::: bitfinex :: PRECIO 40119.0 :: BTCUSD
+2022-04-12 22:54:04,252 INFO :: BTCUSD
+2022-04-12 22:54:04,867 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40103.44  40103.98
+1    crypto  BTC_USDT  1649822043259  40085.64  40088.12
+2    kucoin  BTC-USDT  1649822042975  40090.10  40090.20
+3   binance   BTCUSDT  1649822044154  40087.42  40087.43
+4  bitfinex    BTCUSD                 40111.00  40107.00
+2022-04-12 22:54:04,955 INFO :: Compra a ::: binance :: PRECIO 40087.43 :: BTCUSDT
+2022-04-12 22:54:06,452 INFO :: BTCUSD
+2022-04-12 22:54:06,673 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40103.44  40103.82
+1    crypto  BTC_USDT  1649822045476  40085.29  40088.56
+2    kucoin  BTC-USDT  1649822045574  40090.10  40090.20
+3   binance   BTCUSDT  1649822046346  40087.41  40087.42
+4  bitfinex    BTCUSD                 40111.00  40107.00
+2022-04-12 22:54:06,744 INFO :: Venta a ::: bitfinex :: PRECIO 40111.0 :: BTCUSD
+2022-04-12 22:54:38,459 INFO :: BTCUSD
+2022-04-12 22:54:38,858 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40093.14  40098.50
+1    crypto  BTC_USDT  1649822077311  40080.54  40081.57
+2    kucoin  BTC-USDT  1649822076874  40082.60  40082.70
+3   binance   BTCUSDT  1649822078356  40080.53  40080.54
+4  bitfinex    BTCUSD                 40103.00  40105.00
+2022-04-12 22:54:38,904 INFO :: Compra a ::: binance :: PRECIO 40080.54 :: BTCUSDT
+2022-04-12 22:54:41,203 INFO :: BTCUSD
+2022-04-12 22:54:41,413 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649821800000  40093.14  40098.50
+1    crypto  BTC_USDT  1649822079732  40081.11  40081.12
+2    kucoin  BTC-USDT  1649822078574  40082.60  40082.70
+3   binance   BTCUSDT  1649822081102  40080.53  40080.54
+4  bitfinex    BTCUSD                 40103.00  40105.00
+2022-04-12 22:54:41,497 INFO :: Venta a ::: bitfinex :: PRECIO 40103.0 :: BTCUSD
+2022-04-12 22:55:13,132 INFO :: BTCUSD
+2022-04-12 22:55:13,346 INFO ::    exchange    symbol      timestamp       bid           ask
+0    gemini    btcusd  1649822100000  40093.14  40099.730000
+1    crypto  BTC_USDT  1649822112066  40080.71  40082.220000
+2    kucoin  BTC-USDT  1649822112177  40086.00  40086.100000
+3   binance   BTCUSDT  1649822113031  40080.52  40080.530000
+4  bitfinex    BTCUSD                 40101.00  40102.892943
+2022-04-12 22:55:13,390 INFO :: Compra a ::: binance :: PRECIO 40080.53 :: BTCUSDT
+2022-04-12 22:55:14,988 INFO :: BTCUSD
+2022-04-12 22:55:15,230 INFO ::    exchange    symbol      timestamp       bid           ask
+0    gemini    btcusd  1649822100000  40093.14  40099.730000
+1    crypto  BTC_USDT  1649822113856  40080.53  40084.740000
+2    kucoin  BTC-USDT  1649822114074  40086.00  40086.100000
+3   binance   BTCUSDT  1649822114884  40080.52  40080.530000
+4  bitfinex    BTCUSD                 40101.00  40102.892943
+2022-04-12 22:55:15,294 INFO :: Venta a ::: bitfinex :: PRECIO 40101.0 :: BTCUSD
+2022-04-12 22:55:47,045 INFO :: BTCUSD
+2022-04-12 22:55:47,446 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40093.14  40103.61
+1    crypto  BTC_USDT  1649822145942  40089.15  40089.16
+2    kucoin  BTC-USDT  1649822145975  40087.40  40087.50
+3   binance   BTCUSDT  1649822146944  40089.56  40089.57
+4  bitfinex    BTCUSD                 40106.00  40103.00
+2022-04-12 22:55:47,494 INFO :: Compra a ::: kucoin :: PRECIO 40087.5 :: BTC-USDT
+2022-04-12 22:55:48,981 INFO :: BTCUSD
+2022-04-12 22:55:49,174 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40093.14  40103.61
+1    crypto  BTC_USDT  1649822147906  40088.82  40088.83
+2    kucoin  BTC-USDT  1649822147775  40087.40  40087.50
+3   binance   BTCUSDT  1649822148876  40089.56  40089.57
+4  bitfinex    BTCUSD                 40106.00  40103.00
+2022-04-12 22:55:49,217 INFO :: Venta a ::: bitfinex :: PRECIO 40106.0 :: BTCUSD
+2022-04-12 22:56:21,399 INFO :: BTCUSD
+2022-04-12 22:56:21,638 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40093.85  40102.30
+1    crypto  BTC_USDT  1649822179769  40080.52  40086.19
+2    kucoin  BTC-USDT  1649822179474  40083.70  40083.80
+3   binance   BTCUSDT  1649822181303  40083.85  40083.86
+4  bitfinex    BTCUSD                 40102.00  40106.00
+2022-04-12 22:56:21,680 INFO :: Compra a ::: kucoin :: PRECIO 40083.8 :: BTC-USDT
+2022-04-12 22:56:23,960 INFO :: BTCUSD
+2022-04-12 22:56:24,300 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40093.85  40102.30
+1    crypto  BTC_USDT  1649822182159  40085.28  40086.18
+2    kucoin  BTC-USDT  1649822181974  40083.70  40083.80
+3   binance   BTCUSDT  1649822183857  40086.17  40086.18
+4  bitfinex    BTCUSD                 40105.00  40098.00
+2022-04-12 22:56:24,387 INFO :: Venta a ::: bitfinex :: PRECIO 40105.0 :: BTCUSD
+2022-04-12 22:56:56,145 INFO :: BTCUSD
+2022-04-12 22:56:56,555 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40098.17  40107.45
+1    crypto  BTC_USDT  1649822215017  40089.54  40090.07
+2    kucoin  BTC-USDT  1649822214974  40087.40  40087.50
+3   binance   BTCUSDT  1649822216048  40089.51  40089.52
+4  bitfinex    BTCUSD                 40111.00  40109.00
+2022-04-12 22:56:56,636 INFO :: Compra a ::: kucoin :: PRECIO 40087.5 :: BTC-USDT
+2022-04-12 22:56:58,610 INFO :: BTCUSD
+2022-04-12 22:56:58,834 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40098.18  40107.49
+1    crypto  BTC_USDT  1649822217142  40091.61  40094.26
+2    kucoin  BTC-USDT  1649822217174  40087.40  40087.50
+3   binance   BTCUSDT  1649822218514  40089.51  40089.52
+4  bitfinex    BTCUSD                 40111.00  40109.00
+2022-04-12 22:56:58,876 INFO :: Venta a ::: bitfinex :: PRECIO 40111.0 :: BTCUSD
+2022-04-12 22:57:30,712 INFO :: BTCUSD
+2022-04-12 22:57:31,375 INFO ::    exchange    symbol      timestamp       bid           ask
+0    gemini    btcusd  1649822100000  40086.62  40086.630000
+1    crypto  BTC_USDT  1649822249472  40071.28  40071.290000
+2    kucoin  BTC-USDT  1649822249174  40068.70  40068.800000
+3   binance   BTCUSDT  1649822250605  40071.86  40071.870000
+4  bitfinex    BTCUSD                 40093.00  40092.545433
+2022-04-12 22:57:31,423 INFO :: Compra a ::: kucoin :: PRECIO 40068.8 :: BTC-USDT
+2022-04-12 22:57:34,156 INFO :: BTCUSD
+2022-04-12 22:57:34,319 INFO ::    exchange    symbol      timestamp       bid           ask
+0    gemini    btcusd  1649822100000  40086.62  40086.630000
+1    crypto  BTC_USDT  1649822252357  40081.23  40084.150000
+2    kucoin  BTC-USDT  1649822253074  40083.00  40083.100000
+3   binance   BTCUSDT  1649822254061  40080.51  40080.520000
+4  bitfinex    BTCUSD                 40093.00  40092.545433
+2022-04-12 22:57:34,368 INFO :: Venta a ::: bitfinex :: PRECIO 40093.0 :: BTCUSD
+2022-04-12 22:58:06,157 INFO :: BTCUSD
+2022-04-12 22:58:06,869 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40085.55  40085.73
+1    crypto  BTC_USDT  1649822284998  40075.80  40077.91
+2    kucoin  BTC-USDT  1649822284974  40080.10  40080.20
+3   binance   BTCUSDT  1649822286056  40077.51  40077.52
+4  bitfinex    BTCUSD                 40099.00  40099.00
+2022-04-12 22:58:06,916 INFO :: Compra a ::: binance :: PRECIO 40077.52 :: BTCUSDT
+2022-04-12 22:58:08,477 INFO :: BTCUSD
+2022-04-12 22:58:08,695 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40085.55  40085.73
+1    crypto  BTC_USDT  1649822287435  40076.82  40078.64
+2    kucoin  BTC-USDT  1649822287275  40080.10  40080.20
+3   binance   BTCUSDT  1649822288376  40077.51  40077.52
+4  bitfinex    BTCUSD                 40099.00  40099.00
+2022-04-12 22:58:08,741 INFO :: Venta a ::: bitfinex :: PRECIO 40099.0 :: BTCUSD
+2022-04-12 22:58:40,338 INFO :: BTCUSD
+2022-04-12 22:58:40,761 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40086.62  40089.80
+1    crypto  BTC_USDT  1649822319331  40077.41  40079.76
+2    kucoin  BTC-USDT  1649822319275  40077.20  40077.30
+3   binance   BTCUSDT  1649822320238  40075.76  40075.77
+4  bitfinex    BTCUSD                 40089.00  40090.00
+2022-04-12 22:58:40,806 INFO :: Compra a ::: binance :: PRECIO 40075.77 :: BTCUSDT
+2022-04-12 22:58:42,301 INFO :: BTCUSD
+2022-04-12 22:58:42,514 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40086.62  40089.87
+1    crypto  BTC_USDT  1649822321282  40076.89  40078.35
+2    kucoin  BTC-USDT  1649822321374  40077.20  40077.30
+3   binance   BTCUSDT  1649822322201  40075.76  40075.77
+4  bitfinex    BTCUSD                 40089.00  40090.00
+2022-04-12 22:58:42,557 INFO :: Venta a ::: bitfinex :: PRECIO 40089.0 :: BTCUSD
+2022-04-12 22:59:14,233 INFO :: BTCUSD
+2022-04-12 22:59:14,649 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40086.65  40090.10
+1    crypto  BTC_USDT  1649822353202  40076.31  40078.48
+2    kucoin  BTC-USDT  1649822353074  40073.30  40073.40
+3   binance   BTCUSDT  1649822354131  40075.76  40075.77
+4  bitfinex    BTCUSD                 40090.00  40089.00
+2022-04-12 22:59:14,697 INFO :: Compra a ::: kucoin :: PRECIO 40073.4 :: BTC-USDT
+2022-04-12 22:59:16,192 INFO :: BTCUSD
+2022-04-12 22:59:16,399 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40086.65  40090.10
+1    crypto  BTC_USDT  1649822355086  40077.02  40077.21
+2    kucoin  BTC-USDT  1649822355174  40073.30  40073.40
+3   binance   BTCUSDT  1649822356095  40075.76  40075.77
+4  bitfinex    BTCUSD                 40090.00  40089.00
+2022-04-12 22:59:16,473 INFO :: Venta a ::: bitfinex :: PRECIO 40090.0 :: BTCUSD
+2022-04-12 22:59:48,443 INFO :: BTCUSD
+2022-04-12 22:59:48,841 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40086.65  40095.60
+1    crypto  BTC_USDT  1649822387046  40080.58  40084.24
+2    kucoin  BTC-USDT  1649822386774  40080.70  40080.80
+3   binance   BTCUSDT  1649822388346  40084.87  40084.88
+4  bitfinex    BTCUSD                 40090.00  40088.00
+2022-04-12 22:59:48,912 INFO :: Compra a ::: kucoin :: PRECIO 40080.8 :: BTC-USDT
+2022-04-12 22:59:50,439 INFO :: BTCUSD
+2022-04-12 22:59:50,652 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822100000  40086.67  40095.60
+1    crypto  BTC_USDT  1649822389370  40082.50  40084.46
+2    kucoin  BTC-USDT  1649822389275  40080.70  40080.80
+3   binance   BTCUSDT  1649822390335  40084.87  40084.88
+4  bitfinex    BTCUSD                 40090.00  40088.00
+2022-04-12 22:59:50,697 INFO :: Venta a ::: bitfinex :: PRECIO 40090.0 :: BTCUSD
+2022-04-12 23:00:22,414 INFO :: BTCUSD
+2022-04-12 23:00:22,770 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40086.71  40095.25
+1    crypto  BTC_USDT  1649822421305  40078.58  40080.43
+2    kucoin  BTC-USDT  1649822421275  40071.80  40071.90
+3   binance   BTCUSDT  1649822422317  40079.06  40079.07
+4  bitfinex    BTCUSD                 40090.00  40090.00
+2022-04-12 23:00:22,909 INFO :: Compra a ::: kucoin :: PRECIO 40071.9 :: BTC-USDT
+2022-04-12 23:00:24,400 INFO :: BTCUSD
+2022-04-12 23:00:24,563 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40086.72  40095.13
+1    crypto  BTC_USDT  1649822423425  40079.53  40081.16
+2    kucoin  BTC-USDT  1649822423075  40071.80  40071.90
+3   binance   BTCUSDT  1649822424303  40079.06  40079.07
+4  bitfinex    BTCUSD                 40090.00  40090.00
+2022-04-12 23:00:24,604 INFO :: Venta a ::: bitfinex :: PRECIO 40090.0 :: BTCUSD
+2022-04-12 23:00:56,616 INFO :: BTCUSD
+2022-04-12 23:00:56,848 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40072.38  40075.38
+1    crypto  BTC_USDT  1649822455225  40075.23  40075.24
+2    kucoin  BTC-USDT  1649822455175  40071.20  40071.30
+3   binance   BTCUSDT  1649822456521  40075.32  40075.33
+4  bitfinex    BTCUSD                 40082.00  40081.00
+2022-04-12 23:00:56,892 INFO :: Compra a ::: kucoin :: PRECIO 40071.3 :: BTC-USDT
+2022-04-12 23:00:58,809 INFO :: BTCUSD
+2022-04-12 23:00:59,008 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40075.37  40075.38
+1    crypto  BTC_USDT  1649822457407  40072.66  40074.30
+2    kucoin  BTC-USDT  1649822457277  40071.30  40071.40
+3   binance   BTCUSDT  1649822458711  40075.31  40075.32
+4  bitfinex    BTCUSD                 40082.00  40081.00
+2022-04-12 23:00:59,114 INFO :: Venta a ::: bitfinex :: PRECIO 40082.0 :: BTCUSD
+2022-04-12 23:01:31,952 INFO :: BTCUSD
+2022-04-12 23:01:32,647 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40090.08  40102.17
+1    crypto  BTC_USDT  1649822489803  40081.88  40081.89
+2    kucoin  BTC-USDT  1649822489874  40081.60  40081.70
+3   binance   BTCUSDT  1649822491828  40084.36  40084.37
+4  bitfinex    BTCUSD                 40096.00  40086.00
+2022-04-12 23:01:32,693 INFO :: Compra a ::: kucoin :: PRECIO 40081.7 :: BTC-USDT
+2022-04-12 23:01:35,688 INFO :: BTCUSD
+2022-04-12 23:01:35,949 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40090.08  40098.06
+1    crypto  BTC_USDT  1649822493833  40081.88  40081.89
+2    kucoin  BTC-USDT  1649822493674  40081.60  40081.70
+3   binance   BTCUSDT  1649822495581  40089.93  40089.94
+4  bitfinex    BTCUSD                 40096.00  40086.00
+2022-04-12 23:01:36,042 INFO :: Venta a ::: bitfinex :: PRECIO 40096.0 :: BTCUSD
+2022-04-12 23:02:07,653 INFO :: BTCUSD
+2022-04-12 23:02:08,018 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40105.74  40113.13
+1    crypto  BTC_USDT  1649822526584  40102.22  40102.23
+2    kucoin  BTC-USDT  1649822526074  40099.90  40100.00
+3   binance   BTCUSDT  1649822527558  40099.99  40100.00
+4  bitfinex    BTCUSD                 40115.00  40109.00
+2022-04-12 23:02:08,124 INFO :: Compra a ::: kucoin :: PRECIO 40100.0 :: BTC-USDT
+2022-04-12 23:02:09,653 INFO :: BTCUSD
+2022-04-12 23:02:09,885 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40104.12  40113.08
+1    crypto  BTC_USDT  1649822528583  40103.41  40103.42
+2    kucoin  BTC-USDT  1649822528274  40100.20  40100.30
+3   binance   BTCUSDT  1649822529549  40103.43  40103.44
+4  bitfinex    BTCUSD                 40115.00  40109.00
+2022-04-12 23:02:09,928 INFO :: Venta a ::: bitfinex :: PRECIO 40115.0 :: BTCUSD
+2022-04-12 23:02:41,845 INFO :: BTCUSD
+2022-04-12 23:02:42,181 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40105.09  40107.68
+1    crypto  BTC_USDT  1649822560646  40094.79  40095.44
+2    kucoin  BTC-USDT  1649822559675  40099.90  40100.00
+3   binance   BTCUSDT  1649822561742  40099.96  40099.97
+4  bitfinex    BTCUSD                 40118.00  40115.00
+2022-04-12 23:02:42,266 INFO :: Compra a ::: crypto :: PRECIO 40095.44 :: BTC_USDT
+2022-04-12 23:02:43,854 INFO :: BTCUSD
+2022-04-12 23:02:44,058 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40105.09  40107.62
+1    crypto  BTC_USDT  1649822562767  40094.67  40097.96
+2    kucoin  BTC-USDT  1649822562775  40095.60  40095.70
+3   binance   BTCUSDT  1649822563757  40098.66  40098.67
+4  bitfinex    BTCUSD                 40118.00  40115.00
+2022-04-12 23:02:44,131 INFO :: Venta a ::: bitfinex :: PRECIO 40118.0 :: BTCUSD
+2022-04-12 23:03:15,730 INFO :: BTCUSD
+2022-04-12 23:03:15,983 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40103.87  40107.03
+1    crypto  BTC_USDT  1649822594709  40094.43  40094.75
+2    kucoin  BTC-USDT  1649822594874  40087.20  40087.30
+3   binance   BTCUSDT  1649822595628  40094.98  40094.99
+4  bitfinex    BTCUSD                 40102.00  40105.00
+2022-04-12 23:03:16,025 INFO :: Compra a ::: kucoin :: PRECIO 40087.3 :: BTC-USDT
+2022-04-12 23:03:17,537 INFO :: BTCUSD
+2022-04-12 23:03:17,723 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40103.87  40107.06
+1    crypto  BTC_USDT  1649822596475  40095.01  40096.03
+2    kucoin  BTC-USDT  1649822596575  40087.20  40087.30
+3   binance   BTCUSDT  1649822597441  40094.98  40094.99
+4  bitfinex    BTCUSD                 40102.00  40105.00
+2022-04-12 23:03:17,766 INFO :: Venta a ::: gemini :: PRECIO 40103.87 :: btcusd
+2022-04-12 23:03:49,647 INFO :: BTCUSD
+2022-04-12 23:03:50,033 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40070.10  40073.61
+1    crypto  BTC_USDT  1649822628592  40051.88  40057.23
+2    kucoin  BTC-USDT  1649822628674  40052.20  40052.30
+3   binance   BTCUSDT  1649822629546  40054.40  40054.41
+4  bitfinex    BTCUSD                 40089.00  40089.00
+2022-04-12 23:03:50,080 INFO :: Compra a ::: kucoin :: PRECIO 40052.3 :: BTC-USDT
+2022-04-12 23:03:51,606 INFO :: BTCUSD
+2022-04-12 23:03:51,786 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40070.10  40070.11
+1    crypto  BTC_USDT  1649822630567  40052.22  40056.92
+2    kucoin  BTC-USDT  1649822630475  40050.10  40050.20
+3   binance   BTCUSDT  1649822631504  40054.39  40054.40
+4  bitfinex    BTCUSD                 40089.00  40089.00
+2022-04-12 23:03:51,827 INFO :: Venta a ::: bitfinex :: PRECIO 40089.0 :: BTCUSD
+2022-04-12 23:04:23,444 INFO :: BTCUSD
+2022-04-12 23:04:23,658 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40059.12  40059.21
+1    crypto  BTC_USDT  1649822662403  40041.74  40042.45
+2    kucoin  BTC-USDT  1649822662175  40035.50  40035.60
+3   binance   BTCUSDT  1649822663342  40042.41  40042.42
+4  bitfinex    BTCUSD                 40071.00  40071.00
+2022-04-12 23:04:23,707 INFO :: Compra a ::: kucoin :: PRECIO 40035.6 :: BTC-USDT
+2022-04-12 23:04:25,203 INFO :: BTCUSD
+2022-04-12 23:04:25,563 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40059.12  40060.54
+1    crypto  BTC_USDT  1649822664185  40042.57  40042.58
+2    kucoin  BTC-USDT  1649822663475  40035.50  40035.60
+3   binance   BTCUSDT  1649822665102  40042.41  40042.42
+4  bitfinex    BTCUSD                 40064.00  40065.00
+2022-04-12 23:04:25,619 INFO :: Venta a ::: bitfinex :: PRECIO 40064.0 :: BTCUSD
+2022-04-12 23:04:57,795 INFO :: BTCUSD
+2022-04-12 23:04:58,157 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40045.71  40051.01
+1    crypto  BTC_USDT  1649822696233  40040.82  40043.42
+2    kucoin  BTC-USDT  1649822695975  40031.00  40031.10
+3   binance   BTCUSDT  1649822697695  40039.28  40039.29
+4  bitfinex    BTCUSD                 40055.00  40055.00
+2022-04-12 23:04:58,254 INFO :: Compra a ::: kucoin :: PRECIO 40031.1 :: BTC-USDT
+2022-04-12 23:04:59,792 INFO :: BTCUSD
+2022-04-12 23:05:00,020 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822400000  40045.66  40051.01
+1    crypto  BTC_USDT  1649822698722  40039.09  40042.67
+2    kucoin  BTC-USDT  1649822698474  40029.90  40030.00
+3   binance   BTCUSDT  1649822699687  40042.11  40042.12
+4  bitfinex    BTCUSD                 40055.00  40055.00
+2022-04-12 23:05:00,118 INFO :: Venta a ::: bitfinex :: PRECIO 40055.0 :: BTCUSD
+2022-04-12 23:05:32,807 INFO :: BTCUSD
+2022-04-12 23:05:33,474 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40052.50  40055.35
+1    crypto  BTC_USDT  1649822731028  40037.74  40038.58
+2    kucoin  BTC-USDT  1649822731174  40029.90  40030.00
+3   binance   BTCUSDT  1649822732703  40038.15  40038.16
+4  bitfinex    BTCUSD                 40051.00  40051.00
+2022-04-12 23:05:33,527 INFO :: Compra a ::: kucoin :: PRECIO 40030.0 :: BTC-USDT
+2022-04-12 23:05:35,259 INFO :: BTCUSD
+2022-04-12 23:05:35,465 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40052.50  40054.68
+1    crypto  BTC_USDT  1649822734073  40039.61  40039.62
+2    kucoin  BTC-USDT  1649822734175  40029.90  40030.00
+3   binance   BTCUSDT  1649822735160  40038.15  40038.16
+4  bitfinex    BTCUSD                 40051.00  40051.00
+2022-04-12 23:05:35,525 INFO :: Venta a ::: gemini :: PRECIO 40052.5 :: btcusd
+2022-04-12 23:06:07,237 INFO :: BTCUSD
+2022-04-12 23:06:07,595 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40052.50  40055.39
+1    crypto  BTC_USDT  1649822766200  40042.34  40042.38
+2    kucoin  BTC-USDT  1649822766474  40037.30  40037.40
+3   binance   BTCUSDT  1649822767131  40045.87  40045.88
+4  bitfinex    BTCUSD                 40050.00  40050.00
+2022-04-12 23:06:07,644 INFO :: Compra a ::: kucoin :: PRECIO 40037.4 :: BTC-USDT
+2022-04-12 23:06:09,239 INFO :: BTCUSD
+2022-04-12 23:06:09,450 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40052.50  40055.39
+1    crypto  BTC_USDT  1649822768138  40041.26  40041.28
+2    kucoin  BTC-USDT  1649822767974  40037.30  40037.40
+3   binance   BTCUSDT  1649822769137  40045.87  40045.88
+4  bitfinex    BTCUSD                 40050.00  40050.00
+2022-04-12 23:06:09,539 INFO :: Venta a ::: gemini :: PRECIO 40052.5 :: btcusd
+2022-04-12 23:06:41,270 INFO :: BTCUSD
+2022-04-12 23:06:41,632 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40048.79  40052.50
+1    crypto  BTC_USDT  1649822800159  40040.67  40041.05
+2    kucoin  BTC-USDT  1649822799874  40035.00  40035.10
+3   binance   BTCUSDT  1649822801178  40043.88  40043.89
+4  bitfinex    BTCUSD                 40050.00  40050.00
+2022-04-12 23:06:41,708 INFO :: Compra a ::: kucoin :: PRECIO 40035.1 :: BTC-USDT
+2022-04-12 23:06:43,202 INFO :: BTCUSD
+2022-04-12 23:06:43,421 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40048.54  40052.50
+1    crypto  BTC_USDT  1649822802119  40040.69  40041.05
+2    kucoin  BTC-USDT  1649822802074  40035.00  40035.10
+3   binance   BTCUSDT  1649822803098  40043.88  40043.89
+4  bitfinex    BTCUSD                 40050.00  40050.00
+2022-04-12 23:06:43,473 INFO :: Venta a ::: bitfinex :: PRECIO 40050.0 :: BTCUSD
+2022-04-12 23:07:15,554 INFO :: BTCUSD
+2022-04-12 23:07:15,912 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40046.62  40052.44
+1    crypto  BTC_USDT  1649822834030  40036.62  40037.95
+2    kucoin  BTC-USDT  1649822834075  40029.70  40029.80
+3   binance   BTCUSDT  1649822835462  40038.16  40038.17
+4  bitfinex    BTCUSD                 40050.00  40048.00
+2022-04-12 23:07:15,956 INFO :: Compra a ::: kucoin :: PRECIO 40029.8 :: BTC-USDT
+2022-04-12 23:07:17,614 INFO :: BTCUSD
+2022-04-12 23:07:17,820 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40046.60  40052.44
+1    crypto  BTC_USDT  1649822836478  40038.88  40038.89
+2    kucoin  BTC-USDT  1649822836375  40029.70  40029.80
+3   binance   BTCUSDT  1649822837471  40039.54  40039.55
+4  bitfinex    BTCUSD                 40050.00  40048.00
+2022-04-12 23:07:17,907 INFO :: Venta a ::: bitfinex :: PRECIO 40050.0 :: BTCUSD
+2022-04-12 23:07:49,608 INFO :: BTCUSD
+2022-04-12 23:07:49,963 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40045.66  40049.42
+1    crypto  BTC_USDT  1649822868440  40035.13  40037.43
+2    kucoin  BTC-USDT  1649822868474  40025.40  40025.50
+3   binance   BTCUSDT  1649822869512  40038.16  40038.17
+4  bitfinex    BTCUSD                 40050.00  40050.00
+2022-04-12 23:07:50,032 INFO :: Compra a ::: kucoin :: PRECIO 40025.5 :: BTC-USDT
+2022-04-12 23:07:51,652 INFO :: BTCUSD
+2022-04-12 23:07:51,890 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40045.69  40049.34
+1    crypto  BTC_USDT  1649822870572  40036.52  40038.79
+2    kucoin  BTC-USDT  1649822870275  40025.10  40025.20
+3   binance   BTCUSDT  1649822871553  40038.16  40038.17
+4  bitfinex    BTCUSD                 40050.00  40050.00
+2022-04-12 23:07:51,968 INFO :: Venta a ::: bitfinex :: PRECIO 40050.0 :: BTCUSD
+2022-04-12 23:08:23,628 INFO :: BTCUSD
+2022-04-12 23:08:24,020 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40045.49  40052.50
+1    crypto  BTC_USDT  1649822902567  40040.08  40040.09
+2    kucoin  BTC-USDT  1649822902474  40027.80  40027.90
+3   binance   BTCUSDT  1649822903527  40038.18  40038.19
+4  bitfinex    BTCUSD                 40050.00  40050.00
+2022-04-12 23:08:24,065 INFO :: Compra a ::: kucoin :: PRECIO 40027.9 :: BTC-USDT
+2022-04-12 23:08:25,579 INFO :: BTCUSD
+2022-04-12 23:08:25,788 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40045.49  40052.47
+1    crypto  BTC_USDT  1649822904533  40039.49  40039.50
+2    kucoin  BTC-USDT  1649822904375  40027.80  40027.90
+3   binance   BTCUSDT  1649822905478  40038.18  40038.19
+4  bitfinex    BTCUSD                 40050.00  40050.00
+2022-04-12 23:08:25,857 INFO :: Venta a ::: bitfinex :: PRECIO 40050.0 :: BTCUSD
+2022-04-12 23:08:57,384 INFO :: BTCUSD
+2022-04-12 23:08:57,769 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40048.01  40051.63
+1    crypto  BTC_USDT  1649822936372  40036.52  40036.53
+2    kucoin  BTC-USDT  1649822935474  40030.30  40030.40
+3   binance   BTCUSDT  1649822937282  40038.18  40038.19
+4  bitfinex    BTCUSD                 40051.00  40050.00
+2022-04-12 23:08:57,845 INFO :: Compra a ::: kucoin :: PRECIO 40030.4 :: BTC-USDT
+2022-04-12 23:08:59,454 INFO :: BTCUSD
+2022-04-12 23:08:59,655 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40044.27  40047.59
+1    crypto  BTC_USDT  1649822938412  40028.22  40029.25
+2    kucoin  BTC-USDT  1649822938175  40023.60  40023.70
+3   binance   BTCUSDT  1649822939362  40030.00  40030.01
+4  bitfinex    BTCUSD                 40051.00  40050.00
+2022-04-12 23:08:59,704 INFO :: Venta a ::: bitfinex :: PRECIO 40051.0 :: BTCUSD
+2022-04-12 23:09:32,797 INFO :: BTCUSD
+2022-04-12 23:09:33,466 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40060.35  40069.75
+1    crypto  BTC_USDT  1649822971075  40052.35  40056.28
+2    kucoin  BTC-USDT  1649822971275  40044.10  40044.20
+3   binance   BTCUSDT  1649822972588  40052.44  40052.45
+4  bitfinex    BTCUSD                 40063.00  40056.00
+2022-04-12 23:09:33,559 INFO :: Compra a ::: kucoin :: PRECIO 40044.2 :: BTC-USDT
+2022-04-12 23:09:35,373 INFO :: BTCUSD
+2022-04-12 23:09:35,589 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649822700000  40060.37  40069.96
+1    crypto  BTC_USDT  1649822974122  40055.61  40057.20
+2    kucoin  BTC-USDT  1649822973575  40044.90  40045.00
+3   binance   BTCUSDT  1649822975277  40054.98  40054.99
+4  bitfinex    BTCUSD                 40063.00  40056.00
+2022-04-12 23:09:35,657 INFO :: Venta a ::: bitfinex :: PRECIO 40063.0 :: BTCUSD
+2022-04-12 23:10:07,332 INFO :: BTCUSD
+2022-04-12 23:10:07,574 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649823000000  40048.26  40054.24
+1    crypto  BTC_USDT  1649823006217  40037.84  40038.04
+2    kucoin  BTC-USDT  1649823006174  40029.70  40029.80
+3   binance   BTCUSDT  1649823007238  40039.59  40039.60
+4  bitfinex    BTCUSD                 40056.00  40054.00
+2022-04-12 23:10:07,646 INFO :: Compra a ::: kucoin :: PRECIO 40029.8 :: BTC-USDT
+2022-04-12 23:10:09,165 INFO :: BTCUSD
+2022-04-12 23:10:09,357 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649823000000  40046.72  40054.24
+1    crypto  BTC_USDT  1649823008131  40034.30  40034.31
+2    kucoin  BTC-USDT  1649823007775  40029.70  40029.80
+3   binance   BTCUSDT  1649823009067  40025.77  40025.78
+4  bitfinex    BTCUSD                 40056.00  40054.00
+2022-04-12 23:10:09,423 INFO :: Venta a ::: bitfinex :: PRECIO 40056.0 :: BTCUSD
+2022-04-12 23:48:12,709 INFO :: Starting bot siete...
+2022-04-12 23:48:44,564 INFO :: BTCUSD
+2022-04-12 23:48:44,791 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649825100000  40082.49  40090.37
+1    crypto  BTC_USDT  1649825323410  40077.04  40077.05
+2    kucoin  BTC-USDT  1649825323674  40072.30  40072.40
+3   binance   BTCUSDT  1649825324461  40074.79  40074.80
+4  bitfinex    BTCUSD                 40083.00  40082.00
+2022-04-12 23:49:58,623 INFO :: Starting bot siete...
+2022-04-12 23:50:30,582 INFO :: BTCUSD
+2022-04-12 23:50:31,254 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649825400000  40076.54  40086.62
+1    crypto  BTC_USDT  1649825429261  40073.48  40073.49
+2    kucoin  BTC-USDT  1649825427574  40069.70  40069.80
+3   binance   BTCUSDT  1649825430399  40071.95  40071.96
+4  bitfinex    BTCUSD                 40085.00  40085.00
+2022-04-12 23:52:04,539 INFO :: Starting bot siete...
+2022-04-12 23:52:36,200 INFO :: BTCUSD
+2022-04-12 23:52:36,622 INFO ::    exchange    symbol      timestamp       bid       ask
+0    gemini    btcusd  1649825400000  40050.54  40067.26
+1    crypto  BTC_USDT  1649825555190  40046.58  40050.59
+2    kucoin  BTC-USDT  1649825554774  40045.40  40045.50
+3   binance   BTCUSDT  1649825556105  40044.10  40044.11
+4  bitfinex    BTCUSD                 40085.00  40086.00
+2022-04-12 23:52:36,687 INFO :: Compra a ::: binance :: PRECIO 40044.11 :: BTCUSDT
