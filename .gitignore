@@ -43,3 +43,4 @@ secrets*
 *.log
 bot_3.py
 .idea
+secrets.py
