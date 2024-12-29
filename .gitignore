@@ -40,7 +40,6 @@ commands.txt
 
 keys*
 secrets*
-info.log
+*.log
 bot_3.py
 .idea
-whatsapp.py

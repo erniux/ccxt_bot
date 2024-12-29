@@ -8,11 +8,10 @@ import warnings
 import schedule
 from datetime import datetime
 import time
-import secrets
 import requests
 from enums import *
-from twilio.rest import Client
 import logging
+import sys
 
 
 logger = logging.getLogger()
@@ -43,11 +42,10 @@ bitfinex_url = 'https://testnet.bitmex.com'          # https://www.bitmex.com/ap
 
 """
 # PROD
-crypto_url = 'https://api.crypto.com'             # https://exchange-docs.crypto.com/spot/index.html
-gemini_url = 'https://api.gemini.com'      # https://docs.gemini.com/rest-api/
 kucoin_url = 'https://api.kucoin.com'  # https://docs.kucoin.com/ 
 binance_url = 'https://api.binance.com'     # https://binance-docs.github.io/apidocs/spot/en/
 bitfinex_url = 'https://api-pub.bitfinex.com' # https://www.bitmex.com/api/explorer/co
+
 
 
 binance = BinanceClient(True)
@@ -55,6 +53,7 @@ crypto = CryptoClient(True)
 gemini = GeminiClient(True)
 kucoin = KucoinClient(True)
 bitfinex = BitfinexClient(True)
+
 
 TRADE_SYMBOL = ""
 TRADE_QUOTE = ""
@@ -66,8 +65,7 @@ warnings.filterwarnings('ignore')
     
 in_position = False
  
-
-def tr(df):
+def tr(df): #true range
 	df['previous_close'] = df['close'].shift(1)
 	df['high-low'] = df['high'] - df['low']
 	df['high-previous-close'] = abs(df['high'] - df['previous_close'])
@@ -76,7 +74,7 @@ def tr(df):
 	
 	return tr
 
-def atr(df, period=14):
+def atr(df, period=14): #average true range
 	# print("calculate the average true range")
 	df['tr'] = tr(df)
 	
@@ -86,10 +84,11 @@ def atr(df, period=14):
 	
 
 def supertrend(df, period=5, multiplier=3.5):
-	# print("calculating supertrend")
+	#print("calculating supertrend")
+	hl2 = (df['high'] + df['low']) / 2
 	df['atr'] = atr(df, period)
-	df['upperband'] = ((df['high'] + df['low']) / 2) + (multiplier * df['atr'])
-	df['lowerband'] = ((df['high'] + df['low']) / 2) - (multiplier * df['atr'])
+	df['upperband'] = hl2 + (multiplier * df['atr'])
+	df['lowerband'] = hl2 - (multiplier * df['atr'])
 	df['in_uptrend'] = True
 
 	for current in range(1, len(df.index)):
@@ -110,11 +109,13 @@ def supertrend(df, period=5, multiplier=3.5):
 	
 	return df
 
+in_position = False
+
 def get_exchanges_to_trade(side):
 	arbitrage = get_tickers()
 	
 	df_ex = pd.DataFrame(arbitrage, columns=['exchange', 'timestamp', 'bid', 'ask'])
-	logger.info(df_ex)
+	#logger.info(df_ex)
 	if side == SIDE_BUY:
 		return df_ex[df_ex['ask']==df_ex['ask'].min()]
 	else:
@@ -124,159 +125,143 @@ def get_exchanges_to_trade(side):
 def check_buy_sell_signals(df):
 	global in_position
 	
-	#logger.info("checking for buy & sells")
-		
+	#logger.info("checking for buy & sells")	
 	#logger.info(df.tail(5))	
 	
 	last_row_index = len(df.index) - 1
 	previous_row_index = last_row_index - 1
-	
-	## Tests for BUY & SELL force values in the dataframe
-	#df['in_uptrend'][last_row_index] = True
-	#df['in_uptrend'][previous_row_index] = False
-	#in_position = False
-	## end tests
-	
-	#print(f"last row trend {df['in_uptrend'][last_row_index]}")
-	#print(f"previous row {df['in_uptrend'][previous_row_index]}")
-	#print(f"in position? {in_position}")
+
 	
 	if not df['in_uptrend'][previous_row_index] and	df['in_uptrend'][last_row_index]:   # cambia de false a true
-		logger.info("YOU MUST BUY!!!! CHANGED TO UPTREND, BUY")
+		#logger.info("YOU MUST BUY!!!! CHANGED TO UPTREND, BUY")
 		if not in_position:
 			exchange_buy = get_exchanges_to_trade(SIDE_BUY)
 			exchange = exchange_buy.iloc[0, :]['exchange']
 			price = exchange_buy.iloc[0, :]['ask']
-			logger.info(exchange)
-			logger.info(f"AQUI ENCUENTRO EL SYMBOL PAR DEL EXCHANGE A COMPRAR {TRADE_SYMBOL}")
-			msg = f"AQUI ENVIO MI ORDEN DE COMPRA a {exchange} :: PRECIO {price}"
+			msg = f"ORDEN DE VENTA ::: {exchange} :: PRECIO {price}"
 			logger.info(msg)
-			
 			in_position = True
-		else:
-			logger.info("already in position, nothing to do")
+		#else:
+		#	logger.info("already in position, nothing to do")
 		
 		
 	if df['in_uptrend'][previous_row_index] and	not df['in_uptrend'][last_row_index]:   # cambia de true  a false
-		logger.info("YOU MUST SELL!!!! CHANGED TO DOWNTREND, SELL")	
+		#logger.info("YOU MUST SELL!!!! CHANGED TO DOWNTREND, SELL")	
 		if in_position:
 			exchange_sell = get_exchanges_to_trade(SIDE_SELL)
 			exchange = exchange_sell.iloc[0, :]['exchange']
 			price = exchange_sell.iloc[0, :]['bid']
-			msg = f"AQUI ENVIO MI ORDER DE VENTA EN ::: {exchange} :: PRECIO {price}"
+			msg = f"ORDER DE COMPRA ::: {exchange} :: PRECIO {price}"
 			logger.info(msg)
-			
 			in_position = False
-		else:
-			print("you do not have position to sell, nothing to do")
+		#else:
+		#	print("you do not have position to sell, nothing to do")
 		
 			
-	def order(exchange, symbol, side, quantity, type):
-		if exchange == 'gemini':
-			order = gemini.place_order(symbol, side, quantity, type, price)
-		if exchange == 'binance':
-			order = binance.place_order(symbol, side, quantity, type)
-			print(order)
-		elif exchange == 'crypto':
-			return
-		elif exchange == 'bitmex':
-			order = bitmex.place_order(symbol, type, quantity, side) # ('XBTUSD', 'Market', 100, 'Buy'))
-		elif exchange == 'kucoin':
-			order = kucoin.place_order(symbol, type, "", quantity)
+def order(exchange, symbol, side, quantity, type):
+	if exchange == 'gemini':
+		order = gemini.place_order(symbol, side, quantity, type, price)
+	if exchange == 'binance':
+		order = binance.place_order(symbol, side, quantity, type)
+		print(order)
+	elif exchange == 'crypto':
+		return
+	elif exchange == 'bitmex':
+		order = bitfinex.place_order(symbol, type, quantity, side) # ('XBTUSD', 'Market', 100, 'Buy'))
+	elif exchange == 'kucoin':
+		order = kucoin.place_order(symbol, type, "", quantity)
 	
-	
-				
+			
 def get_tickers():
 	
 	arbitrage = []
-	try:
-		symbol_gemini = TRADE_SYMBOL.lower()
-		response = requests.get(gemini_url + f"/v1/pubticker/{symbol_gemini}")
-		ticker_gemini = response.json()
-		gemini = ["gemini", ticker_gemini['volume']['timestamp'], float(ticker_gemini['bid']), float(ticker_gemini['ask'])]
-		arbitrage.append(gemini)
-		# print(f"GEMINI:: {ticker_gemini['volume']['timestamp']} bid:: {ticker_gemini['bid']} :: ask:: {ticker_gemini['ask']}")  
-	except Exception:
-		logger.error(f"EROR EN REQUEST GEMINI {response} ")
 
-	try:
+	try: #kukoin
 		data = dict()
-		symbol_crypto = f"{TRADE_BASE}_{TRADE_QUOTE}"
-		data['instrument_name'] = symbol_crypto
-		response = requests.get(crypto_url + "/v2/public/get-ticker", params=data)
-		ticker_crypto = response.json()['result']['data']
-		crypto = ["crypto", ticker_crypto['t'], float(ticker_crypto['b']), float(ticker_crypto['k'])]
-		arbitrage.append(crypto)
-		# print(f"CRYPTO:: {ticker_crypto['t']}::: bid:: {ticker_crypto['b']} :: ask:: {ticker_crypto['k']}")
-	except Exception:
-		logger.error(f"EROR EN REQUEST CRYPTO {response} ")
-	
-
-	try:
-		data = dict()
-		symbol_kucoin = f"{TRADE_BASE}-{TRADE_QUOTE}"
+		symbol_kucoin = f"{TRADE_BASE}{TRADE_QUOTE}"
 		data['symbol'] = symbol_kucoin
 		response = requests.get(kucoin_url + "/api/v1/market/orderbook/level1", params=data)
 		ticker_kucoin = response.json()['data']
 		kucoin = ["kucoin", ticker_kucoin['time'], float(ticker_kucoin['bestBid']), float(ticker_kucoin['bestAsk'])] 
 		arbitrage.append(kucoin)
-		# print(f"KUCOIN:: {ticker_kucoin['time']}::: bid:: {ticker_kucoin['bestBid']} :: ask:: {ticker_kucoin['bestAsk']}")
+		print(f"KUCOIN:: {ticker_kucoin['time']}::: bid:: {ticker_kucoin['bestBid']} :: ask:: {ticker_kucoin['bestAsk']}")
 	except Exception:
 		logger.error(f"EROR EN REQUEST KUCOIN {response}")
 
-	try:
+	try:  #binance
 		data = dict()
 		data['symbol'] = TRADE_SYMBOL
+		
 		response = requests.get(binance_url + "/api/v3/ticker/bookTicker", params=data)
 		time_response = requests.get(binance_url + "/api/v3/time")
 		time_binance = time_response.json()
 		ticker_binance = response.json()
 		binance =  ["binance", time_binance['serverTime'], float(ticker_binance['bidPrice']), float(ticker_binance['askPrice'])]
 		arbitrage.append(binance)
-		# print(f"BINANCE:: {time_binance['serverTime']}::: bid:: {ticker_binance['bidPrice']} :: ask:: {ticker_binance['askPrice']}")
+		#print(f"BINANCE:: {time_binance['serverTime']}::: bid:: {ticker_binance['bidPrice']} :: ask:: {ticker_binance['askPrice']}")
 	except Exception:
 		logger.error(f"EROR EN REQUEST BINANCE {response}")
 	
-	try:
+	try: #bitfinex
 		data = dict()
-		data['symbols'] = "t"+ TRADE_SYMBOL
-		response = requests.get(bitfinex_url +"/v2/ticker/t" + TRADE_SYMBOL)
+		
+		response = requests.get(bitfinex_url +"/v2/ticker/t" + TRADE_SYMBOL[:-1])
 		ticker_bitfinex = (response.json())
+		#print(ticker_bitfinex)
 		bitfinex =  ["bitfinex", '', float(ticker_bitfinex[2]), float(ticker_bitfinex[6])]
 		arbitrage.append(bitfinex)
 	except Exception:
 		logger.error(f"EROR EN REQUEST BITFINEX {response}")
 	
-	logger.info(arbitrage)
+	#logger.info(arbitrage)
 	return arbitrage
 	
 
 	
-def run_bot():
+def run_bot(base,quote):
+	 
 	global TRADE_BASE
 	global TRADE_QUOTE
 	global TRADE_SYMBOL
 	
-	#print(f"Fetching new bars for: {datetime.now().isoformat()}")
-	TRADE_BASE = 'BTC'
-	TRADE_QUOTE = 'USDT'
+	TRADE_BASE = base #'BTC'
+	TRADE_QUOTE = quote #'USDT'
 	
 	TRADE_SYMBOL = TRADE_BASE + TRADE_QUOTE
 
 	bars = binance.get_historical_candles(TRADE_SYMBOL, KLINE_INTERVAL_1MINUTE, limit=100)
-	df = pd.DataFrame(bars[:-1], columns=['timestamp', 'open', 'high', 'low', 'close', 'volume' ])
+	df = pd.DataFrame(bars[:-1], columns=['timestamp', 'open', 'high', 'low', 'close', 'volume', 'tipo_candle' ])
 	df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms') 
+	#print(df) 
 	supertrend_data = supertrend(df)
-	
+	#print(supertrend_data)
 	check_buy_sell_signals(supertrend_data)
 
 
-logger.info("Starting bot seis...")
+#logger.info("Starting bot seis...")
 #run_bot()
 
-schedule.every(1).seconds.do(run_bot)
+#schedule.every(1).seconds.do(run_bot(base='BTC',quote='USDT'))
 
-while True:
-	schedule.run_pending()
-	time.sleep(1)
- 
+#while True:
+#	schedule.run_pending()
+#	time.sleep(1)
+
+if __name__ == "__main__":
+    # Verificamos que se hayan pasado al menos 2 argumentos
+    if len(sys.argv) < 3:
+        print("Uso: python mi_script.py <BASE> <QUOTE>")
+        sys.exit(1)
+    
+    # Capturamos los valores de base y quote
+    base = sys.argv[1]
+    quote = sys.argv[2]
+    
+    logger.info("Starting bot seis...")
+    
+    # Programar la ejecución del bot con schedule
+    schedule.every(1).seconds.do(run_bot, base=base, quote=quote)
+
+    while True:
+        schedule.run_pending()
+        time.sleep(1)

@@ -4,13 +4,13 @@ import requests
 from urllib.parse import urlencode
 import hmac
 import hashlib
-import ccxt
-import websocket
-import threading
+#import ccxt
+#import websocket
+# import threading
 import json
 import logging
 import typing
-import secrets
+import secrets_1
 
 
 logger = logging.getLogger()
@@ -20,11 +20,11 @@ class KucoinClient:
     def __init__(self, testnet: bool):
 
         if testnet:
-            self._base_url = secrets.KUCOIN_SANDBOX_API_URL
-            self._wss_url = secrets.KUCOIN_SANDBOX_WS_URL
-            self._api_key = secrets.KUCOIN_SANDBOX_API_KEY
-            self._secret_key = secrets.KUCOIN_SANDBOX_SECRET_KEY
-            self._passphrase_key = secrets.KUCOIN_SANDBOX_API_PASSPHRASE
+            self._base_url = secrets_1.KUCOIN_SANDBOX_API_URL
+            self._wss_url = secrets_1.KUCOIN_SANDBOX_WS_URL
+            self._api_key = secrets_1.KUCOIN_SANDBOX_API_KEY
+            self._secret_key = secrets_1.KUCOIN_SANDBOX_SECRET_KEY
+            self._passphrase_key = secrets_1.KUCOIN_SANDBOX_API_PASSPHRASE
         else:
             self._base_url = ''
             self._wss_url = ''
@@ -125,8 +125,8 @@ class KucoinClient:
 
         return orders
     
-#kucoin = KucoinClient(True)
+kucoin = KucoinClient(True)
 # print(kucoin.get_contracts())
-# print(kucoin.place_order("BTC-USDT", "buy", "123456ETR001", 1)) 
+#print(kucoin.place_order("BTC-USDT", "buy", "123456ETR001", 1)) 
 #print(kucoin.get_all_orders()) 
     

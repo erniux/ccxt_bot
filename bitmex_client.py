@@ -1,6 +1,6 @@
 import logging
 import requests
-import secrets
+import secrets_1
 from urllib.parse import urlencode
 import hmac
 import hashlib
@@ -13,13 +13,13 @@ logger = logging.getLogger()
 class BitmexClient:
     def __init__(self, testnet):
         if testnet:
-            self._base_url = secrets.BITMEX_SPOT_TESTNET_URL
-            self._wss_url = secrets.BITMEX_SPOT_TESTNET_WS_URL
-            self._api_key = secrets.BITMEX_SPOT_TESTNET_API_KEY
-            self._secret_key = secrets.BITMEX_SPOT_TESTNET_SECRET_KEY
+            self._base_url = secrets_1.BITMEX_SPOT_TESTNET_URL
+            self._wss_url = secrets_1.BITMEX_SPOT_TESTNET_WS_URL
+            self._api_key = secrets_1.BITMEX_SPOT_TESTNET_API_KEY
+            self._secret_key = secrets_1.BITMEX_SPOT_TESTNET_SECRET_KEY
         else:
-            self._base_url = secrets.BITMEX_SPOT_API_URL
-            self._wss_url = secrets.BITMEX_SPOT_WS_URL
+            self._base_url = secrets_1.BITMEX_SPOT_API_URL
+            self._wss_url = secrets_1.BITMEX_SPOT_WS_URL
             self._api_key = ''
             self._secret_key = ''
 
@@ -104,18 +104,4 @@ class BitmexClient:
 
         return order_status
 
-	
-
-	
-# bitmex = BitmexClient(True)
-# contracts = bitmex.get_contracts()
-# for a in contracts:
-#    print(a)
-
-
-# orders = binance.get_my_trades('ETHUSDT')
-# for o in orders:
-#	order_detail = binance.get_order_status('ETHUSDT',o['orderId'])
-#	print(o['symbol'], o['orderId'], o['price'], o['time'])
-#	print(order_detail)
 	

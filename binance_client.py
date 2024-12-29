@@ -1,11 +1,10 @@
 import logging
 import requests
-import secrets
+import secrets_1
 from urllib.parse import urlencode
 import hmac
 import hashlib
 import time
-import pandas as pd
 from collections import OrderedDict 
 
 
@@ -15,15 +14,15 @@ logger = logging.getLogger()
 class BinanceClient:
 	def __init__(self, testnet):
 		if testnet:
-			self._base_url = secrets.BINANCE_SPOT_TESTNET_URL
-			self._wss_url = secrets.BINANCE_SPOT_TESTNET_WS_URL
-			self._api_key = secrets.BINANCE_SPOT_TESTNET_API_KEY
-			self._secret_key = secrets.BINANCE_SPOT_TESTNET_SECRET_KEY
+			self._base_url = secrets_1.BINANCE_SPOT_TESTNET_URL
+			self._wss_url = secrets_1.BINANCE_SPOT_TESTNET_WS_URL
+			self._api_key = secrets_1.BINANCE_SPOT_TESTNET_API_KEY
+			self._secret_key = secrets_1.BINANCE_SPOT_TESTNET_SECRET_KEY
 		else:
-			self._base_url = secrets.BINANCE_SPOT_URL
-			self._wss_url = secrets.BINANCE_SPOT_WS_URL
-			self._api_key = secrets.BINANCE_SPOT_API_KEY
-			self._secret_key = secrets.BINANCE_SPOT_SECRET_KEY
+			self._base_url = secrets_1.BINANCE_SPOT_URL
+			self._wss_url = secrets_1.BINANCE_SPOT_WS_URL
+			self._api_key = secrets_1.BINANCE_SPOT_API_KEY
+			self._secret_key = secrets_1.BINANCE_SPOT_SECRET_KEY
 
 		self.headers = {'X-MBX-APIKEY': self._api_key}
         
@@ -67,6 +66,8 @@ class BinanceClient:
         
         
 	def get_historical_candles(self, symbol, interval, limit=1000):
+
+		#print("ya estoy trabajando.......")
 		data = dict()
 		data['symbol'] = symbol
 		data['interval'] = interval
@@ -78,9 +79,52 @@ class BinanceClient:
 		
 		if raw_candles is not None:
 			for c in raw_candles:
-				candles.append([c[0], float(c[1]), float(c[2]), float(c[3]), float(c[4]), float(c[5])])
-
+				#columns=['timestamp', 'open', 'high', 'low', 'close', 'volume', 'candle' ])
+				candle = self.tipo_vela(float(c[1]), float(c[2]), float(c[3]), float(c[4]))
+				candles.append([c[0], float(c[1]), float(c[2]), float(c[3]), float(c[4]), float(c[5]), candle])
+		#print(candles)
 		return candles
+	
+	def tipo_vela(self, open, high, low, close ):
+		candle = ""
+		tendencia = ""
+		patron = ""
+		fiabilidad = ""
+		tipo_vela = ""
+		m1=0
+		m2=0
+		b=0
+		
+
+		#identificar el tipo de vela y obtener medidas
+		if open < close:
+			tendencia = "Alcista"
+			m1 = round(open - low,4)
+			m2 = round(high - close,4)
+			b  = round(close -open,4)
+		else:
+			tendencia = "Bajista"
+			m1 = round(high - close, 4)
+			m2 = round(low - open, 4)
+			b =  round(open - close, 4)
+		
+		candle = (f'{m1} {m2} {b} {tendencia}')
+		 
+		#Velas Cortas 
+		if (m1 > 0) and (m2 > 0):
+			if(b > m2 + m1):
+				patron = "Indecision"
+				tendencia = tendencia + "Neutra"
+				fiabilidad = "muy baja"
+				tipo_vela = "Vela corta"
+				candle = f'{patron} {tendencia} {fiabilidad} {tipo_vela}'
+		
+	#Segundo clasificar por el tamaño de las mechas
+	#Tercero clasificar vela y enviar
+		 
+		
+		return candle
+
         
 	def get_balances(self):
 		data = dict()
@@ -173,25 +217,4 @@ class BinanceClient:
 		final_position = "{:0.0{}f}".format(position_2, price_precission)
 		
 		return final_position
-
-
-#binance = BinanceClient(False)
-#print(binance.get_historical_candles("LUNABTC", "1m"))
-
-	
-#print(binance.get_balances())
-#print(binance.get_position('BNBBTC'))
-#orders = binance.get_my_trades("BNBBTC")
-
-#for o in orders:
-#	print(f"order_id: {o['orderId']}    price: {o['price']}   quote_qty:  {o['quoteQty']}  time: {pd.to_datetime(o['time'], unit='ms')}  is_maker: {o['isMaker']}   is_buyer: {o['isBuyer']}")
-
-
-#order = binance.get_order_status("BNBBTC", 2066751)
-#print(order)
-# orders = binance.get_my_trades('ETHUSDT')
-# for o in orders:
-#	order_detail = binance.get_order_status('ETHUSDT',o['orderId'])
-#	print(o['symbol'], o['orderId'], o['price'], o['time'])
-#	print(order_detail)
 

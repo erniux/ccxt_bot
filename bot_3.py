@@ -4,10 +4,11 @@ import warnings
 import schedule
 from datetime import datetime
 import time
-import secrets
+import secrets_1
 from enums import *
 import logging
 from twilio.rest import Client
+
 
 
 logger = logging.getLogger()
@@ -39,14 +40,14 @@ in_position = False
 
 
 def send_message(msg):
-	account_sid = secrets.TWILIO_ACCOUNT_SID
-	auth_token = secrets.TWILIO_AUTH_TOKEN
+	account_sid = secrets_1.TWILIO_ACCOUNT_SID
+	auth_token = secrets_1.TWILIO_AUTH_TOKEN
 	client = Client(account_sid, auth_token) 
  
 	message = client.messages.create( 
-                              from_='whatsapp:+14155238886',  
+                              from_=secrets_1.WA_FROM,  
                               body= msg,
-                              to='whatsapp:+5214427505679' 
+                              to=secrets_1.WA_TO 
                           ) 
  
 	

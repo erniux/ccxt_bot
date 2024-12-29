@@ -99,10 +99,10 @@ def order(exchange, symbol, side, quantity, price):
 		order = binance.place_order(symbol, side, quantity, MARKET)   # symbol, side(BUY),, quantity, order_type (MARKET),
 	elif exchange == 'crypto':
 		return
-	elif exchange == 'bitmex':
+	elif exchange == 'bitfinex':
 		order = bitmex.place_order(symbol, type, quantity, side) # ('XBTUSD', 'Market', 100, 'Buy'))
 	elif exchange == 'kucoin':
-		order = kucoin.place_order(symbol, type, "", quantity)
+		order = kucoin.place_order(symbol, type, "123456ETR001", quantity)  #(kucoin.place_order("BTC-USDT", "buy", "123456ETR001", 1)) 
 	
 	return order
 

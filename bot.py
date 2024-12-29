@@ -3,10 +3,9 @@ import json
 import pprint
 import talib
 import numpy
-import secrets
+import secrets_1
 from enums import *
 from twilio.rest import Client
-
 from binance_client import BinanceClient
 
 
@@ -29,8 +28,8 @@ in_position = False
 
 
 def send_message(msg):
-	account_sid = secrets.TWILIO_ACCOUNT_SID
-	auth_token = secrets.TWILIO_AUTH_TOKEN
+	account_sid = secrets_1.TWILIO_ACCOUNT_SID
+	auth_token = secrets_1.TWILIO_AUTH_TOKEN
 	client = Client(account_sid, auth_token) 
  
 	message = client.messages.create( 
